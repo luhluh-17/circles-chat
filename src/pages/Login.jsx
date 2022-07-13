@@ -1,7 +1,12 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import InputField from '../components/InputField'
 
 function Login() {
+  const navigate = useNavigate()
+
+  const handleClick = () => navigate('/register')
+
   return (
     <main>
       <section>
@@ -14,9 +19,8 @@ function Login() {
           <InputField label={'password'} type={'password'} />
           <p>Forgot your password?</p>
           <button type='submit'>Login</button>
-          <p>
-            Need an account? <span>Register</span>
-          </p>
+          <p>Need an account?</p>
+          <button onClick={handleClick}>Register</button>
         </form>
       </section>
     </main>
