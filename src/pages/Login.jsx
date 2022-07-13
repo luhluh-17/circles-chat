@@ -1,4 +1,5 @@
 import React from 'react'
+import InputField from '../components/InputField'
 
 function Login() {
   return (
@@ -9,14 +10,8 @@ function Login() {
           <p>We're so excited to see you again!</p>
         </header>
         <form>
-          <label>
-            EMAIL
-            <input type={'email'}></input>
-          </label>
-          <label>
-            PASSWORD
-            <input type={'email'}></input>
-          </label>
+          <InputField label={'email'} />
+          <InputField label={'password'} type={'password'} />
           <p>Forgot your password?</p>
           <button type='submit'>Login</button>
           <p>
