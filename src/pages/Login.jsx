@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import api, { LOGIN } from '../services/api'
+import auth, { LOGIN } from '../services/auth'
 
 function Login() {
   const emailRef = useRef(null)
@@ -18,7 +18,7 @@ function Login() {
       password: passwordRef.current.value,
     }
 
-    api
+    auth
       .post(LOGIN, data)
       .then(result => {
         const {
@@ -32,7 +32,7 @@ function Login() {
           uid,
         } = result.headers
 
-        localStorage.setItem('acces-token', accessToken)
+        localStorage.setItem('access-token', accessToken)
         localStorage.setItem('client', client)
         localStorage.setItem('expiry', expiry)
         localStorage.setItem('uid', uid)
