@@ -1,6 +1,6 @@
 import React from 'react'
 
-function FormInput({ label, type, autoComplete, id }) {
+function UncontrolledInput({ label, type, autoComplete, id }) {
   const newLabel = label === '' ? type : label
 
   return (
@@ -16,11 +16,10 @@ function FormInput({ label, type, autoComplete, id }) {
   )
 }
 
-FormInput.defaultProps = {
+UncontrolledInput.defaultProps = {
   label: '',
   type: 'text',
   autoComplete: 'on',
-  id: null,
 }
 
-export default FormInput
+export default UncontrolledInput

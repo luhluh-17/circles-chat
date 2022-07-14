@@ -4,7 +4,7 @@ import { authUser } from '../services/auth'
 import { LOGIN } from '../services/constant'
 import FormHeader from '../components/FormHeader'
 import ButtonText from '../components/ButtonText'
-import FormInput from '../components/FormInput'
+import UncontrolledInput from '../components/UncontrolledInput'
 import FormButton from '../components/FormButton'
 
 function Login() {
@@ -39,8 +39,8 @@ function Login() {
         />
         <div className='mt-1'>
           <h5 className='form-text error'>{error}</h5>
-          <FormInput type={'email'} id={emailRef} />
-          <FormInput type={'password'} id={passwordRef} />
+          <UncontrolledInput type={'email'} id={emailRef} />
+          <UncontrolledInput type={'password'} id={passwordRef} />
         </div>
         <ButtonText text={'Forgot your password?'} />
         <FormButton text={'Login'} />
