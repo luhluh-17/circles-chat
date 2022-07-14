@@ -1,8 +1,9 @@
 import { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import FormHeader from '../components/FormHeader'
 import { authUser } from '../services/auth'
 import { REGISTER } from '../services/constant'
+import FormHeader from '../components/FormHeader'
+import ButtonText from '../components/ButtonText'
 
 function Register() {
   const emailRef = useRef(null)
@@ -68,14 +69,12 @@ function Register() {
         <button className='btn-form mt-1' type='submit'>
           Continue
         </button>
-        <h5 className='btn-text' onClick={handleClick}>
-          Already have an account?
-        </h5>
-        <h6 className='form-text mt-1'>
+        <ButtonText text={'Already have an account?'} onClick={handleClick} />
+        <h5 className='form-text mt-1'>
           By registering, you agree to the{' '}
           <span className='btn-text'>Terms of Service</span> and{' '}
           <span className='btn-text'>Privacy Policy</span>
-        </h6>
+        </h5>
       </form>
     </main>
   )

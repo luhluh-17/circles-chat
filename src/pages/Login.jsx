@@ -1,8 +1,9 @@
 import { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import FormHeader from '../components/FormHeader'
 import { authUser } from '../services/auth'
 import { LOGIN } from '../services/constant'
+import FormHeader from '../components/FormHeader'
+import ButtonText from '../components/ButtonText'
 
 function Login() {
   const emailRef = useRef(null)
@@ -55,7 +56,7 @@ function Login() {
             />
           </label>
         </div>
-        <h5 className='btn-text'>Forgot your password?</h5>
+        <ButtonText text={'Forgot your password?'} />
         <button className='btn-form mt-1' type='submit'>
           Login
         </button>
