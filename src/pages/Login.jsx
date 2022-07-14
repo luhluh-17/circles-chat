@@ -1,12 +1,13 @@
 import { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import auth, { LOGIN } from '../services/auth'
+import { authUser } from '../services/auth'
+import { LOGIN } from '../services/constant'
 
 function Login() {
   const emailRef = useRef(null)
   const passwordRef = useRef(null)
 
-  const [error, setError] = useState(`We're so excited to see you again!`)
+  const [error, setError] = useState('')
 
   const navigate = useNavigate()
 
@@ -17,33 +18,10 @@ function Login() {
       email: emailRef.current.value,
       password: passwordRef.current.value,
     }
+    const onSuccess = () => navigate('/home')
+    const onError = errors => setError(errors[0])
 
-    auth
-      .post(LOGIN, data)
-      .then(result => {
-        const {
-          data: { id },
-        } = result.data
-
-        const {
-          'access-token': accessToken,
-          client,
-          expiry,
-          uid,
-        } = result.headers
-
-        localStorage.setItem('access-token', accessToken)
-        localStorage.setItem('client', client)
-        localStorage.setItem('expiry', expiry)
-        localStorage.setItem('uid', uid)
-        localStorage.setItem('id', id)
-
-        navigate('/home')
-      })
-      .catch(error => {
-        const { errors } = error.response.data
-        setError(errors[0])
-      })
+    authUser(LOGIN, data, onSuccess, onError)
   }
 
   const handleClick = () => navigate('/register')
@@ -54,6 +32,7 @@ function Login() {
         <form onSubmit={handleSubmit}>
           <header>
             <h3>Welcome Back</h3>
+            <h4>We're so excited to see you again!</h4>
             <p>{error}</p>
           </header>
           <label className='form-label'>

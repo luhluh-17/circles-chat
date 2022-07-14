@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import auth, { REGISTER } from '../services/auth'
+import { authUser } from '../services/auth'
+import { REGISTER } from '../services/constant'
 
 function Register() {
   const emailRef = useRef(null)
@@ -21,33 +22,10 @@ function Register() {
       password: passwordRef.current.value,
       password_confirmation: confirmRef.current.value,
     }
+    const onSuccess = () => navigate('/home')
+    const onError = errors => setError(` - ${errors.email[0]}`)
 
-    auth
-      .post(REGISTER, data)
-      .then(result => {
-        const {
-          data: { id },
-        } = result.data
-
-        const {
-          'access-token': accessToken,
-          client,
-          expiry,
-          uid,
-        } = result.headers
-
-        localStorage.setItem('access-token', accessToken)
-        localStorage.setItem('client', client)
-        localStorage.setItem('expiry', expiry)
-        localStorage.setItem('uid', uid)
-        localStorage.setItem('id', id)
-
-        navigate('/home')
-      })
-      .catch(error => {
-        const { errors } = error.response.data
-        setError(` - ${errors.email[0]}`)
-      })
+    authUser(REGISTER, data, onSuccess, onError)
   }
 
   return (
