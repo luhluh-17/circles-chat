@@ -1,7 +1,8 @@
 import React from 'react'
+import { capitalText } from '../utils/helper'
 
 function UncontrolledInput({ label, type, autoComplete, id }) {
-  const newLabel = label === '' ? type : label
+  const newLabel = label === '' ? capitalText(type) : label
 
   return (
     <label className='form-label'>

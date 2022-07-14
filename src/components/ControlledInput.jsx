@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-
+import React from 'react'
+import { capitalText } from '../utils/helper'
 function ControlledInput({
   label,
   type,
@@ -7,16 +7,19 @@ function ControlledInput({
   value,
   onValueChange,
   validate,
+  error,
 }) {
-  const newLabel = label === '' ? type : label
-
-  useEffect(() => {
-    validate()
-  }, [validate, value])
+  const newLabel = label === '' ? capitalText(type) : label
+  let newError = ''
+  let classStyle = 'form-label'
+  if (value.length >= 1 && !validate()) {
+    newError = error
+    classStyle = 'form-label error'
+  }
 
   return (
-    <label className='form-label'>
-      {newLabel}
+    <label className={classStyle}>
+      {`${newLabel} ${newError}`}
       <input
         className='form-input'
         type={type}

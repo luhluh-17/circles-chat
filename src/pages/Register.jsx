@@ -1,30 +1,44 @@
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { authUser } from '../services/auth'
 import { REGISTER } from '../services/constant'
 import FormHeader from '../components/FormHeader'
 import ButtonText from '../components/ButtonText'
 import FormButton from '../components/FormButton'
-import FormInput from '../components/FormInput'
+import ControlledInput from '../components/ControlledInput'
 
 function Register() {
-  const emailRef = useRef(null)
-  const passwordRef = useRef(null)
-  const confirmRef = useRef(null)
-
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirm, setConfirm] = useState('')
   const [error, setError] = useState('')
 
   const navigate = useNavigate()
 
   const handleClick = () => navigate('/login')
 
+  const validateEmail = () => {
+    if (email === '') return false
+    return email.includes('@')
+  }
+
+  const validatePassword = () => {
+    if (password === '') return false
+    return !(password.length < 6)
+  }
+
+  const validateConfirm = () => {
+    if (confirm === '') return false
+    return confirm === password
+  }
+
   const handleSubmit = e => {
     e.preventDefault()
 
     const data = {
-      email: emailRef.current.value,
-      password: passwordRef.current.value,
-      password_confirmation: confirmRef.current.value,
+      email,
+      password,
+      password_confirmation: confirm,
     }
     const onSuccess = () => navigate('/home')
     const onError = errors => setError(errors.email[0])
@@ -40,17 +54,30 @@ function Register() {
           subtitle={`We're excited to see you in the community!`}
         />
         <div className='mt-1'>
-          <FormInput type={'email'} autoComplete={'off'} id={emailRef} />
-          <FormInput
+          <ControlledInput
+            type={'email'}
+            autoComplete={'off'}
+            value={email}
+            onValueChange={setEmail}
+            validate={validateEmail}
+            error={'is not valid'}
+          />
+          <ControlledInput
             type={'password'}
             autoComplete={'new-password'}
-            id={passwordRef}
+            value={password}
+            onValueChange={setPassword}
+            validate={validatePassword}
+            error={'is too short (minimum is 6 characters)'}
           />
-          <FormInput
+          <ControlledInput
             label={'Confirm Password'}
             type={'password'}
             autoComplete={'new-password'}
-            id={confirmRef}
+            value={confirm}
+            onValueChange={setConfirm}
+            validate={validateConfirm}
+            error={`doesn't match Password`}
           />
         </div>
         <FormButton text={'Continue'} />
