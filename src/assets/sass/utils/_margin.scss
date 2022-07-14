@@ -3,7 +3,7 @@ $max: 3;
 $spacings: m, mt, mr, mb, ml;
 
 @mixin spacing($spacing, $index) {
-  $value: calc($index * 0.25rem);
+  $value: calc($index * 1rem);
   @if str-slice($spacing, 2, 2) == 't' {
     margin-top: $value;
   } @else if str-slice($spacing, 2, 2) == 'r' {

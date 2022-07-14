@@ -1,30 +1,52 @@
-.btn-round {
-  background-color: var(--clr-white);
+.btn {
   border: transparent;
-  color: var(--clr-black);
-  border-radius: 1rem;
   padding: 0.75rem 1.25rem;
   transition: 0.3s;
-
   &:hover {
     box-shadow: var(--shadow-4);
+    cursor: pointer;
+  }
+}
+
+.btn-primary {
+  @extend .btn;
+  background-color: var(--clr-primary);
+  color: var(--clr-white);
+  padding: 0.75rem 1.25rem;
+  &:hover {
+    box-shadow: var(--shadow-4);
+    cursor: pointer;
+  }
+}
+
+.btn-round {
+  @extend .btn;
+  background-color: var(--clr-white);
+  color: var(--clr-black);
+  border-radius: 1rem;
+
+  &:hover {
     color: var(--clr-primary);
     cursor: pointer;
   }
 }
 
 .btn-round-dark {
+  @extend .btn-round;
   background-color: var(--clr-primary-dark);
-  border: transparent;
   color: var(--clr-white);
-  border-radius: 1rem;
   padding: 1rem 2rem;
-  transition: 0.3s;
   font-size: 1.2rem;
 
   &:hover {
+    color: var(--clr-white);
     background-color: var(--clr-primary-dark);
-    box-shadow: var(--shadow-4);
-    cursor: pointer;
+  }
+}
+
+.btn-text {
+  color: var(--clr-primary-light);
+  &:hover {
+    text-decoration: underline;
   }
 }

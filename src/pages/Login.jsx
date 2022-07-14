@@ -19,7 +19,7 @@ function Login() {
       password: passwordRef.current.value,
     }
     const onSuccess = () => navigate('/home')
-    const onError = errors => setError(errors[0])
+    const onError = errors => setError(` - ${errors[0]}`)
 
     authUser(LOGIN, data, onSuccess, onError)
   }
@@ -27,20 +27,19 @@ function Login() {
   const handleClick = () => navigate('/register')
 
   return (
-    <main>
-      <section>
-        <form onSubmit={handleSubmit}>
-          <header>
-            <h3>Welcome Back</h3>
-            <h4>We're so excited to see you again!</h4>
-            <p>{error}</p>
-          </header>
+    <main className='login'>
+      <form className='form' onSubmit={handleSubmit}>
+        <header className='login-header'>
+          <h3>Welcome Back</h3>
+          <h4>We're so excited to see you again!</h4>
+        </header>
+        <div className='mt-1'>
           <label className='form-label'>
-            Email
+            Email <span>{error}</span>
             <input className='form-input' type='email' ref={emailRef} />
           </label>
           <label className='form-label'>
-            Password
+            Password <span>{error}</span>
             <input
               className='form-input'
               type='password'
@@ -48,12 +47,18 @@ function Login() {
               ref={passwordRef}
             />
           </label>
-          <p>Forgot your password?</p>
-          <button>Login</button>
-          <p>Need an account?</p>
-          <button onClick={handleClick}>Register</button>
-        </form>
-      </section>
+        </div>
+        <h5 className='btn-text'>Forgot your password?</h5>
+        <button className='btn-primary mt-1' type='submit'>
+          Login
+        </button>
+        <h5>
+          Need an account?{' '}
+          <span className='btn-text' onClick={handleClick}>
+            Register
+          </span>
+        </h5>
+      </form>
     </main>
   )
 }
