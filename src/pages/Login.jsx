@@ -29,7 +29,7 @@ function Login() {
   return (
     <main className='login'>
       <form className='form' onSubmit={handleSubmit}>
-        <header className='login-header'>
+        <header>
           <h3 className='title'>Welcome Back</h3>
           <h4 className='subtitle'>We're so excited to see you again!</h4>
         </header>
