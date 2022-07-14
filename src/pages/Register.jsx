@@ -4,6 +4,8 @@ import { authUser } from '../services/auth'
 import { REGISTER } from '../services/constant'
 import FormHeader from '../components/FormHeader'
 import ButtonText from '../components/ButtonText'
+import FormButton from '../components/FormButton'
+import FormInput from '../components/FormInput'
 
 function Register() {
   const emailRef = useRef(null)
@@ -38,37 +40,20 @@ function Register() {
           subtitle={`We're excited to see you in the community!`}
         />
         <div className='mt-1'>
-          <label className='form-label'>
-            Email <span>{error}</span>
-            <input
-              className='form-input'
-              type='email'
-              autoComplete='false'
-              ref={emailRef}
-            />
-          </label>
-          <label className='form-label'>
-            Password
-            <input
-              className='form-input'
-              type='password'
-              autoComplete='new-password'
-              ref={passwordRef}
-            />
-          </label>
-          <label className='form-label'>
-            Confirm Password
-            <input
-              className='form-input'
-              type='password'
-              autoComplete='new-password'
-              ref={confirmRef}
-            />
-          </label>
+          <FormInput type={'email'} autoComplete={'off'} id={emailRef} />
+          <FormInput
+            type={'password'}
+            autoComplete={'new-password'}
+            id={passwordRef}
+          />
+          <FormInput
+            label={'Confirm Password'}
+            type={'password'}
+            autoComplete={'new-password'}
+            id={confirmRef}
+          />
         </div>
-        <button className='btn-form mt-1' type='submit'>
-          Continue
-        </button>
+        <FormButton text={'Continue'} />
         <ButtonText text={'Already have an account?'} onClick={handleClick} />
         <h5 className='form-text mt-1'>
           By registering, you agree to the{' '}

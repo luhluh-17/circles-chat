@@ -4,6 +4,8 @@ import { authUser } from '../services/auth'
 import { LOGIN } from '../services/constant'
 import FormHeader from '../components/FormHeader'
 import ButtonText from '../components/ButtonText'
+import FormInput from '../components/FormInput'
+import FormButton from '../components/FormButton'
 
 function Login() {
   const emailRef = useRef(null)
@@ -37,29 +39,11 @@ function Login() {
         />
         <div className='mt-1'>
           <h5 className='form-text error'>{error}</h5>
-          <label className='form-label'>
-            Email
-            <input
-              className='form-input'
-              type='email'
-              autoComplete='on'
-              ref={emailRef}
-            />
-          </label>
-          <label className='form-label'>
-            Password
-            <input
-              className='form-input'
-              type='password'
-              autoComplete='on'
-              ref={passwordRef}
-            />
-          </label>
+          <FormInput type={'email'} id={emailRef} />
+          <FormInput type={'password'} id={passwordRef} />
         </div>
         <ButtonText text={'Forgot your password?'} />
-        <button className='btn-form mt-1' type='submit'>
-          Login
-        </button>
+        <FormButton text={'Login'} />
         <h5 className='form-text'>
           Need an account?{' '}
           <span className='btn-text' onClick={handleClick}>
