@@ -6,8 +6,8 @@ const auth = axios.create({
   headers: { 'Content-Type': 'application/json' },
 })
 
-export const authUser = (url, data, onSuccess, onError) => {
-  auth
+export const authUser = async (url, data, onSuccess, onError) => {
+  await auth
     .post(url, data)
     .then(result => {
       const {
