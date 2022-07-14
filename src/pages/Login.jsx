@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import FormHeader from '../components/FormHeader'
 import { authUser } from '../services/auth'
 import { LOGIN } from '../services/constant'
 
@@ -28,16 +29,21 @@ function Login() {
 
   return (
     <main className='main-container'>
-      <form className='form' onSubmit={handleSubmit}>
-        <header>
-          <h2 className='title'>Welcome Back</h2>
-          <h4 className='subtitle'>We're so excited to see you again!</h4>
-        </header>
+      <form className='form' autoComplete='on' onSubmit={handleSubmit}>
+        <FormHeader
+          title={'Welcome Back'}
+          subtitle={`We're so excited to see you again!`}
+        />
         <div className='mt-1'>
           <h5 className='form-text error'>{error}</h5>
           <label className='form-label'>
             Email
-            <input className='form-input' type='email' ref={emailRef} />
+            <input
+              className='form-input'
+              type='email'
+              autoComplete='on'
+              ref={emailRef}
+            />
           </label>
           <label className='form-label'>
             Password

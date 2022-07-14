@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import FormHeader from '../components/FormHeader'
 import { authUser } from '../services/auth'
 import { REGISTER } from '../services/constant'
 
@@ -30,13 +31,11 @@ function Register() {
 
   return (
     <main className='main-container'>
-      <form className='form' autocomplete='off' onSubmit={handleSubmit}>
-        <header>
-          <h2 className='title'>Create an Account</h2>
-          <h4 className='subtitle'>
-            We're excited to see you in the community!
-          </h4>
-        </header>
+      <form className='form' autoComplete='off' onSubmit={handleSubmit}>
+        <FormHeader
+          title={'Create an Account'}
+          subtitle={`We're excited to see you in the community!`}
+        />
         <div className='mt-1'>
           <label className='form-label'>
             Email <span>{error}</span>
