@@ -16,7 +16,7 @@ function HeroSection() {
       </div>
       <div className='flex-col'>
         <div className='hero-container'>
-          <h1>Imagine a place...</h1>
+          <h1 className='title'>Imagine a place...</h1>
           <h3>
             ...where you can belong to a school club, a gaming group, or a
             worldwide art community. Where just you and a handful of friends can
