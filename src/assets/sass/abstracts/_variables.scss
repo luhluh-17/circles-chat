@@ -1,29 +1,34 @@
 :root {
   /* colors */
-  --clr-background: #06283d;
   --clr-primary: #1363df;
-  --clr-primary-2: #47b5ff;
-  --clr-primary-3: #dff6ff;
+  --clr-primary-dark: #06283d;
+  --clr-primary-light: #47b5ff;
+
+  --clr-background: #355068;
+
+  --clr-primary-white: #dff6ff;
+
+  --clr-background: #355068;
 
   /* grey */
-  --grey-50: #f8fafc;
-  --grey-100: #f1f5f9;
-  --grey-200: #e2e8f0;
-  --grey-300: #cbd5e1;
-  --grey-400: #94a3b8;
-  --grey-500: #64748b;
-  --grey-600: #475569;
-  --grey-700: #334155;
-  --grey-800: #1e293b;
-  --grey-900: #0f172a;
+  --clr-grey-50: #f8fafc;
+  --clr-grey-100: #f1f5f9;
+  --clr-grey-200: #e2e8f0;
+  --clr-grey-300: #cbd5e1;
+  --clr-grey-400: #94a3b8;
+  --clr-grey-500: #64748b;
+  --clr-grey-600: #475569;
+  --clr-grey-700: #334155;
+  --clr-grey-800: #1e293b;
+  --clr-grey-900: #0f172a;
 
   /* rest of the colors */
-  --black: #222;
-  --white: #fff;
-  --red-light: #f8d7da;
-  --red-dark: #842029;
-  --green-light: #d1e7dd;
-  --green-dark: #0f5132;
+  --clr-black: #222;
+  --clr-white: #fff;
+  --clr-red-light: #f8d7da;
+  --clr-red-dark: #842029;
+  --clr-green-light: #d1e7dd;
+  --clr-green-dark: #0f5132;
 
   /* fonts  */
 
@@ -31,8 +36,6 @@
   --extra-small-text: 0.7em;
 
   /* rest of the vars */
-  --backgroundColor: var(--grey-50);
-  --textColor: var(--grey-900);
   --borderRadius: 0.25rem;
   --letterSpacing: 1px;
   --transition: 0.3s ease-in-out all;
