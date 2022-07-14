@@ -6,7 +6,16 @@ body {
   line-height: 1.75;
 }
 
-h1 {
+.title {
   font-family: 'Comfortaa', cursive;
   font-weight: 700;
+}
+
+.subtitle {
+  font-family: 'Comfortaa', cursive;
+  color: var(--clr-grey-400);
+}
+
+.error {
+  color: var(--clr-red);
 }
