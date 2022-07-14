@@ -1,5 +1,6 @@
 .btn {
   border: transparent;
+  border-radius: 0.25rem;
   padding: 0.75rem 1.25rem;
   transition: 0.3s;
   &:hover {
@@ -8,8 +9,9 @@
   }
 }
 
-.btn-primary {
+.btn-form {
   @extend .btn;
+  width: 100%;
   background-color: var(--clr-primary);
   color: var(--clr-white);
   padding: 0.75rem 1.25rem;

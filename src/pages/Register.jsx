@@ -23,44 +23,61 @@ function Register() {
       password_confirmation: confirmRef.current.value,
     }
     const onSuccess = () => navigate('/home')
-    const onError = errors => setError(` - ${errors.email[0]}`)
+    const onError = errors => setError(errors.email[0])
 
     authUser(REGISTER, data, onSuccess, onError)
   }
 
   return (
-    <main>
-      <h1>Create an account</h1>
-      <form onSubmit={handleSubmit}>
-        <label className='form-label'>
-          Email <span>{error}</span>
-          <input className='form-input' type='email' ref={emailRef} />
-        </label>
-        <label className='form-label'>
-          Password
-          <input
-            className='form-input'
-            type='password'
-            autoComplete='on'
-            ref={passwordRef}
-          />
-        </label>
-        <label className='form-label'>
-          Confirm Password
-          <input
-            className='form-input'
-            type='password'
-            autoComplete='on'
-            ref={confirmRef}
-          />
-        </label>
-        <button type='submit'>Continue</button>
+    <main className='main-container'>
+      <form className='form' autocomplete='off' onSubmit={handleSubmit}>
+        <header>
+          <h2 className='title'>Create an Account</h2>
+          <h4 className='subtitle'>
+            We're excited to see you in the community!
+          </h4>
+        </header>
+        <div className='mt-1'>
+          <label className='form-label'>
+            Email <span>{error}</span>
+            <input
+              className='form-input'
+              type='email'
+              autoComplete='false'
+              ref={emailRef}
+            />
+          </label>
+          <label className='form-label'>
+            Password
+            <input
+              className='form-input'
+              type='password'
+              autoComplete='new-password'
+              ref={passwordRef}
+            />
+          </label>
+          <label className='form-label'>
+            Confirm Password
+            <input
+              className='form-input'
+              type='password'
+              autoComplete='new-password'
+              ref={confirmRef}
+            />
+          </label>
+        </div>
+        <button className='btn-form mt-1' type='submit'>
+          Continue
+        </button>
+        <h5 className='btn-text' onClick={handleClick}>
+          Already have an account?
+        </h5>
+        <h6 className='form-text mt-1'>
+          By registering, you agree to the{' '}
+          <span className='btn-text'>Terms of Service</span> and{' '}
+          <span className='btn-text'>Privacy Policy</span>
+        </h6>
       </form>
-      <button onClick={handleClick}>Already have an account?</button>
-      <h6>
-        By registering, you agree to the <span>Terms of Service</span> and{' '}
-        <span>Privacy policy</span>
-      </h6>
     </main>
   )
 }

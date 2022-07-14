@@ -27,10 +27,10 @@ function Login() {
   const handleClick = () => navigate('/register')
 
   return (
-    <main className='login'>
+    <main className='main-container'>
       <form className='form' onSubmit={handleSubmit}>
         <header>
-          <h3 className='title'>Welcome Back</h3>
+          <h2 className='title'>Welcome Back</h2>
           <h4 className='subtitle'>We're so excited to see you again!</h4>
         </header>
         <div className='mt-1'>
@@ -50,7 +50,7 @@ function Login() {
           </label>
         </div>
         <h5 className='btn-text'>Forgot your password?</h5>
-        <button className='btn-primary form-btn mt-1' type='submit'>
+        <button className='btn-form mt-1' type='submit'>
           Login
         </button>
         <h5 className='form-text'>
