@@ -48,5 +48,6 @@
   color: var(--clr-primary-light);
   &:hover {
     text-decoration: underline;
+    cursor: pointer;
   }
 }
