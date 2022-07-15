@@ -19,9 +19,16 @@ function RegisterForm({ onSubmit, errorMessage }) {
   const navigate = useNavigate()
   const handleClick = () => navigate('/login')
 
+  const handleEmailValidation = error => {
+    if (error === '') {
+      return validateEmail(email)
+    } else {
+      return { result: false, error }
+    }
+  }
+
   useEffect(() => {
     setEmailError(errorMessage)
-    alert(errorMessage)
   }, [errorMessage])
 
   return (
@@ -40,8 +47,7 @@ function RegisterForm({ onSubmit, errorMessage }) {
           autoComplete={'off'}
           value={email}
           onValueChange={setEmail}
-          validate={() => validateEmail(email)}
-          error={'is not valid'}
+          validate={() => handleEmailValidation(emailError)}
         />
         <ControlledInput
           type={'password'}
@@ -49,7 +55,6 @@ function RegisterForm({ onSubmit, errorMessage }) {
           value={password}
           onValueChange={setPassword}
           validate={() => validatePassword(password)}
-          error={'is too short (minimum is 6 characters)'}
         />
         <ControlledInput
           label={'Confirm Password'}
@@ -58,7 +63,6 @@ function RegisterForm({ onSubmit, errorMessage }) {
           value={confirm}
           onValueChange={setConfirm}
           validate={() => validateConfirm(password, confirm)}
-          error={`doesn't match Password`}
         />
       </div>
       <FormButton text={'Continue'} />

@@ -1,14 +1,17 @@
 export const validateEmail = email => {
-  if (email === '') return false
-  return email.includes('@')
+  const result = email.includes('@')
+  const error = 'is not valid'
+  return { result, error }
 }
 
 export const validatePassword = password => {
-  if (password === '') return false
-  return !(password.length < 6)
+  const result = !(password.length < 6)
+  const error = 'is too short (minimum is 6 characters)'
+  return { result, error }
 }
 
 export const validateConfirm = (confirm, password) => {
-  if (confirm === '') return false
-  return confirm === password
+  const result = confirm === password
+  const error = "doesn't match Password"
+  return { result, error }
 }

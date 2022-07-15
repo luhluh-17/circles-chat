@@ -7,12 +7,13 @@ function ControlledInput({
   value,
   onValueChange,
   validate,
-  error,
 }) {
   const newLabel = label === '' ? capitalText(type) : label
+  const { result, error } = validate()
+
   let newError = ''
   let classStyle = 'form-label'
-  if (value.length >= 1 && !validate()) {
+  if (value.length >= 1 && !result) {
     newError = error
     classStyle = 'form-label error'
   }
