@@ -4,10 +4,9 @@
   --clr-primary-dark: #06283d;
   --clr-primary-light: #47b5ff;
   --clr-secondary-light: #355068;
-  --clr-secondary-dark: #222;
+  --clr-secondary-dark: #03122e;
   --clr-background: #355068;
   --clr-primary-white: #dff6ff;
-  --clr-background: #355068;
   /* grey */
   --clr-grey-50: #f8fafc;
   --clr-grey-100: #f1f5f9;
@@ -83,7 +82,6 @@ img {
 }
 
 body {
-  background: var(--backgroundColor);
   color: var(--clr-white);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   line-height: 1.75;
