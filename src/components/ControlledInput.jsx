@@ -11,16 +11,13 @@ function ControlledInput({
   const newLabel = label === '' ? capitalText(type) : label
   const { result, error } = validate()
 
-  let newError = ''
-  let classStyle = 'form-label'
-  if (value.length >= 1 && !result) {
-    newError = error
-    classStyle = 'form-label error'
-  }
+  const condition = value.length >= 1 && !result
+  const errorMessage = condition ? error : ''
+  const style = condition ? 'form-label error' : 'form-label'
 
   return (
-    <label className={classStyle}>
-      {`${newLabel} ${newError}`}
+    <label className={style}>
+      {`${newLabel} ${errorMessage}`}
       <input
         className='form-input'
         type={type}

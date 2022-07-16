@@ -1,7 +1,12 @@
-export const validateEmail = email => {
-  const result = email.includes('@')
-  const error = 'is not valid'
-  return { result, error }
+export const validateEmail = (email, apiError) => {
+  if (apiError === '') {
+    const emailFormat = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/
+    const result = email.match(emailFormat)
+    const error = 'is not valid'
+    return { result, error }
+  } else {
+    return { result: false, error: apiError }
+  }
 }
 
 export const validatePassword = password => {

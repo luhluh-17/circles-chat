@@ -19,16 +19,8 @@ function RegisterForm({ onSubmit, errorMessage }) {
   const navigate = useNavigate()
   const handleClick = () => navigate('/login')
 
-  const handleEmailValidation = error => {
-    if (error === '') {
-      return validateEmail(email)
-    } else {
-      return { result: false, error }
-    }
-  }
-
   useEffect(() => {
-    setEmailError(errorMessage)
+    setEmailError(state => (state = errorMessage))
   }, [errorMessage])
 
   return (
@@ -47,7 +39,7 @@ function RegisterForm({ onSubmit, errorMessage }) {
           autoComplete={'off'}
           value={email}
           onValueChange={setEmail}
-          validate={() => handleEmailValidation(emailError)}
+          validate={() => validateEmail(email, emailError)}
         />
         <ControlledInput
           type={'password'}
