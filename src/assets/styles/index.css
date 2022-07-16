@@ -4,7 +4,7 @@
   --clr-primary-dark: #06283d;
   --clr-primary-light: #47b5ff;
   --clr-secondary-light: #355068;
-  --clr-secondary-dark: #03122e;
+  --clr-secondary-dark: #000018;
   --clr-background: #355068;
   --clr-primary-white: #dff6ff;
   /* grey */
@@ -248,6 +248,25 @@ body {
 .form-text {
   width: 100%;
   text-align: center;
+}
+
+.sidebar {
+  background-color: var(--clr-secondary-dark);
+  height: 100vh;
+  width: 20rem;
+  padding: 1rem;
+}
+
+.content {
+  background-color: var(--clr-primary-dark);
+  height: 100vh;
+  width: 100%;
+  color: black;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: row;
 }
 
 .hero-section {

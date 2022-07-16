@@ -1,13 +1,16 @@
 import React from 'react'
-import { getUsers } from '../services/api'
 
 function Home() {
-  const handleClick = () => {
-    const onSuccess = result => console.log(result)
-    const onError = error => console.log(error)
-    getUsers(onSuccess, onError)
-  }
-  return <button onClick={handleClick}>Get Users</button>
+  return (
+    <main className='content-container'>
+      <aside className='sidebar'>
+        <h4>Channels</h4>
+      </aside>
+      <section className='content'>
+        <h3>Contents</h3>
+      </section>
+    </main>
+  )
 }
 
 export default Home
