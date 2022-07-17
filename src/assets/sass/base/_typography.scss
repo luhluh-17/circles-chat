@@ -20,6 +20,10 @@ body {
 .sidebar-header-title {
   font-family: 'Comfortaa', cursive;
   font-weight: 700;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .error {
