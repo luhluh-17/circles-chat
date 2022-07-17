@@ -99,6 +99,11 @@ body {
   text-align: center;
 }
 
+.sidebar-header-title {
+  font-family: "Comfortaa", cursive;
+  font-weight: 700;
+}
+
 .error {
   color: var(--clr-red);
 }
@@ -208,6 +213,14 @@ body {
   cursor: pointer;
 }
 
+.btn-icon {
+  opacity: 0.75;
+}
+.btn-icon:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
 .main-container {
   display: flex;
   justify-content: center;
@@ -252,9 +265,22 @@ body {
 
 .sidebar {
   background-color: var(--clr-secondary-dark);
+  color: var(--clr-grey-400);
   height: 100vh;
   width: 20rem;
-  padding: 1rem;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.5px solid var(--clr-grey-400);
+  padding: 0.75rem;
+}
+
+.sidebar-btns {
+  display: flex;
+  align-items: center;
 }
 
 .content {

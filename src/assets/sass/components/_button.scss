@@ -53,3 +53,11 @@
     cursor: pointer;
   }
 }
+
+.btn-icon {
+  opacity: 0.75;
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+}

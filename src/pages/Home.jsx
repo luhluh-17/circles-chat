@@ -1,11 +1,10 @@
 import React from 'react'
+import Sidebar from '../components/Sidebar'
 
 function Home() {
   return (
     <main className='content-container'>
-      <aside className='sidebar'>
-        <h4>Channels</h4>
-      </aside>
+      <Sidebar />
       <section className='content'>
         <h3>Contents</h3>
       </section>
