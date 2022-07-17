@@ -1,4 +1,5 @@
 import React from 'react'
+import { getInitials } from '../utils/helper'
 import Searchbar from './Searchbar'
 
 function Navbar() {
@@ -9,11 +10,11 @@ function Navbar() {
         <li>
           <span className='material-symbols-outlined icon'>home</span>
         </li>
-        <li className='navbar-item'>
+        <li>
           <span className='material-symbols-outlined icon'>mail</span>
         </li>
-        <li className='navbar-item'>
-          <span className='dot'>R</span>
+        <li>
+          <span className='dot'>{getInitials()}</span>
         </li>
       </ul>
     </nav>

@@ -176,6 +176,7 @@ body {
   align-items: flex-end;
   font-family: "Comfortaa", cursive;
   font-weight: 700;
+  color: var(--clr-grey-300);
 }
 
 .btn, .btn-round, .btn-round-dark, .btn-form {
