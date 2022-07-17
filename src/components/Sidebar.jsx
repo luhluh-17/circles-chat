@@ -5,12 +5,12 @@ function Sidebar() {
     <aside className='sidebar'>
       <header className='sidebar-header'>
         <h4 className='sidebar-header-title'>
-          <span class='material-symbols-outlined icon'>forum</span>
+          <span className='material-symbols-outlined icon'>forum</span>
           Channels
         </h4>
         <div className='sidebar-btns'>
-          <span class='material-symbols-outlined btn-icon'>more_vert</span>
-          <span class='material-symbols-outlined btn-icon'>add</span>
+          <span className='material-symbols-outlined btn-icon'>more_vert</span>
+          <span className='material-symbols-outlined btn-icon'>add</span>
         </div>
       </header>
     </aside>
