@@ -3,9 +3,13 @@
 @use 'base/typography';
 @use 'utils/display';
 @use 'utils/margin';
+@use 'components/account-circle';
 @use 'components/button';
 @use 'components/container';
 @use 'components/form';
+@use 'components/icon';
+@use 'components/inputfield';
+@use 'components/navbar';
 @use 'components/sidebar';
 @use 'pages/home';
 @use 'pages/landing';
