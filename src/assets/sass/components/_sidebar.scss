@@ -2,7 +2,7 @@
   background-color: var(--clr-secondary-dark);
   color: var(--clr-grey-300);
   height: 100vh;
-  width: 20rem;
+  width: 30rem;
 }
 
 .sidebar-header {
@@ -16,4 +16,25 @@
 .sidebar-btns {
   display: flex;
   align-items: center;
+}
+
+.sidebar-no-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.5;
+  height: 80%;
+  text-align: center;
+  padding: 1rem;
+}
+
+.sidebar-items {
+  padding: 0.5rem 1rem;
+  border-bottom: 0.25px solid var(--clr-grey-700);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--clr-primary);
+  }
 }

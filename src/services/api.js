@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { BASE_URL, MESSAGES, USERS } from './constant'
+import { BASE_URL } from './constant'
 
 const api = axios.create({
   baseURL: BASE_URL,
@@ -12,19 +12,18 @@ const api = axios.create({
   },
 })
 
-export const getUsers = (onSuccess, onError) => {
-  api
-    .get(USERS)
+export const apiGET = async (url, onSuccess, onError) => {
+  await api
+    .get(url)
     .then(response => {
-      const { data } = response.data
-      onSuccess(data)
+      onSuccess(response.data)
     })
     .catch(error => onError(error.message))
 }
 
-export const sendMessage = (data, onSuccess, onError) => {
+export const apiPOST = (url, data, onSuccess, onError) => {
   api
-    .post(MESSAGES, data)
+    .post(url, data)
     .then(result => onSuccess(result))
     .catch(error => onError(error))
 }
