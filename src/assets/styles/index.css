@@ -353,12 +353,19 @@ body {
   padding: 1rem;
 }
 
-.sidebar-items {
+.sidebar-link {
+  display: flex;
+  color: var(--grey-500);
   padding: 0.5rem 1rem;
   border-bottom: 0.25px solid var(--clr-grey-700);
-  cursor: pointer;
+  text-decoration: none;
 }
-.sidebar-items:hover {
+.sidebar-link:hover {
+  cursor: pointer;
+  background-color: var(--clr-primary);
+}
+
+.sidebar-active {
   background-color: var(--clr-primary);
 }
 

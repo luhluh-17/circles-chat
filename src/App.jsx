@@ -13,8 +13,9 @@ function App() {
       <Route path='login' element={<Login />} />
       <Route path='register' element={<Register />} />
 
-      <Route path='home' element={<Home />}>
+      <Route path='/home' element={<Home />}>
         <Route index element={<Channel />} />
+        <Route path='channel/:channelName' element={<Channel />} />
         <Route path='messages' element={<Messages />} />
         <Route path='messages/:email' element={<Messages />} />
       </Route>
