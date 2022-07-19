@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import Channel from './pages/Channel'
+import Feed from './pages/Feed'
 import Home from './pages/Home'
 import Landing from './pages/Landing'
 import Login from './pages/Login'
@@ -14,7 +15,7 @@ function App() {
       <Route path='register' element={<Register />} />
 
       <Route path='/home' element={<Home />}>
-        <Route index element={<Channel />} />
+        <Route index element={<Feed />} />
         <Route path='channel/:channelName' element={<Channel />} />
         <Route path='messages' element={<Messages />} />
         <Route path='messages/:email' element={<Messages />} />
