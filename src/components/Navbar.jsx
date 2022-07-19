@@ -30,6 +30,9 @@ function Navbar() {
         <li onClick={navigateToMessages}>
           <span className='material-symbols-outlined icon'>mail</span>
         </li>
+        <li>
+          <span className='material-symbols-outlined icon'>notifications</span>
+        </li>
         <li onClick={handleLogout}>
           <span className='dot'>{getInitials()}</span>
         </li>
