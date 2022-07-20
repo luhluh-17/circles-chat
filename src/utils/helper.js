@@ -6,5 +6,4 @@ export const capitalText = str => {
   return arr.join(' ')
 }
 
-export const getInitials = () =>
-  localStorage.getItem('uid').charAt(0).toUpperCase()
+export const getInitials = word => word.charAt(0).toUpperCase()

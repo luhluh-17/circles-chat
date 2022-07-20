@@ -34,7 +34,9 @@ function Navbar() {
           <span className='material-symbols-outlined icon'>notifications</span>
         </li>
         <li onClick={handleLogout}>
-          <span className='dot'>{getInitials()}</span>
+          <span className='dot'>
+            {getInitials(localStorage.getItem('uid'))}
+          </span>
         </li>
       </ul>
     </nav>
