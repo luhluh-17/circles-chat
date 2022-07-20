@@ -5,3 +5,6 @@ export const USERS = '/users'
 export const MESSAGES = '/messages'
 export const CHANNELS = '/channels'
 export const ADD_MEMBER = '/channel/add_member'
+
+export const READ_MESSAGE = (id, type) =>
+  `${MESSAGES}/?receiver_id=${id}&receiver_class=${type}`

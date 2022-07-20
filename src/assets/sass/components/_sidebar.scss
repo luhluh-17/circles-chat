@@ -29,7 +29,7 @@
   padding: 1rem;
 }
 
-.sidebar-link {
+.link {
   display: flex;
   color: var(--grey-500);
   padding: 0.5rem 1rem;
@@ -41,6 +41,6 @@
   }
 }
 
-.sidebar-active {
+.active {
   background-color: var(--clr-primary);
 }

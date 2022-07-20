@@ -15,9 +15,7 @@ const api = axios.create({
 export const apiGET = async (url, onSuccess, onError) => {
   await api
     .get(url)
-    .then(response => {
-      onSuccess(response.data)
-    })
+    .then(response => onSuccess(response.data))
     .catch(error => onError(error.message))
 }
 

@@ -1,0 +1,16 @@
+.chat-container {
+  padding: 1rem;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  max-height: 80%;
+}
+
+.chat-message {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+
+  &.sender {
+    flex-direction: row-reverse;
+  }
+}

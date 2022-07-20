@@ -112,6 +112,10 @@ body {
   color: var(--clr-red);
 }
 
+.chat {
+  color: var(--clr-grey-300);
+}
+
 .flex, .flex-row, .flex-col {
   display: flex;
   align-items: center;
@@ -238,6 +242,22 @@ body {
   cursor: pointer;
 }
 
+.chat-container {
+  padding: 1rem;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  max-height: 80%;
+}
+
+.chat-message {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.chat-message.sender {
+  flex-direction: row-reverse;
+}
+
 .main-container {
   display: flex;
   justify-content: center;
@@ -322,6 +342,20 @@ body {
   color: var(--clr-grey-300);
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--clr-secondary-dark);
+  border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--clr-primary-light);
+  border-radius: 1rem;
+}
+
 .sidebar {
   background-color: var(--clr-secondary-dark);
   color: var(--clr-grey-300);
@@ -353,19 +387,19 @@ body {
   padding: 1rem;
 }
 
-.sidebar-link {
+.link {
   display: flex;
   color: var(--grey-500);
   padding: 0.5rem 1rem;
   border-bottom: 0.25px solid var(--clr-grey-700);
   text-decoration: none;
 }
-.sidebar-link:hover {
+.link:hover {
   cursor: pointer;
   background-color: var(--clr-primary);
 }
 
-.sidebar-active {
+.active {
   background-color: var(--clr-primary);
 }
 

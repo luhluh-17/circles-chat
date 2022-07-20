@@ -16,7 +16,7 @@ function App() {
 
       <Route path='/home' element={<Home />}>
         <Route index element={<Feed />} />
-        <Route path='channel/:channelName' element={<Channel />} />
+        <Route path='channel/:channelId' element={<Channel />} />
         <Route path='messages' element={<Messages />} />
         <Route path='messages/:email' element={<Messages />} />
       </Route>
