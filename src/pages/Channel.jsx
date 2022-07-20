@@ -1,16 +1,29 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { groupBy } from 'lodash'
 import { apiGET } from '../services/api'
 import { READ_MESSAGE } from '../services/constant'
+import AccountCircle from '../components/AccountCircle'
 
 function Channel() {
   const [chats, setChats] = useState([])
   const { channelId } = useParams()
 
-  console.log(channelId)
   const handleSuccess = reponse => {
-    setChats(reponse.data)
-    console.log(reponse.data)
+    const chatList = reponse.data.map(chat => {
+      const date = new Date(chat.created_at)
+
+      return {
+        id: chat.id,
+        body: chat.body,
+        date: date.toLocaleDateString(),
+        time: date.toLocaleTimeString(),
+        sender: chat.sender.uid,
+      }
+    })
+
+    const chatListByDate = groupBy(chatList, chat => chat.date)
+    setChats(chatListByDate)
   }
 
   const handleError = message => {
@@ -21,27 +34,42 @@ function Channel() {
     apiGET(READ_MESSAGE(channelId, 'Channel'), handleSuccess, handleError)
   }, [channelId])
 
-  const chatList = chats.map(chat => {
-    const date = new Date(chat.created_at).toLocaleDateString()
-    const time = new Date(chat.created_at).toLocaleTimeString()
+  const chatDate = Object.entries(chats).map(([key, value]) => {
+    const chatList = value.map(chat => {
+      const loggedUser = localStorage.getItem('uid')
+      const styleChat = loggedUser === chat.sender ? 'chat reverse' : 'chat'
+      const styleHeader =
+        loggedUser === chat.sender ? ' chat-header reverse' : 'chat-header'
+      return (
+        <li className={styleChat} key={chat.id}>
+          <div>
+            <div className={styleHeader}>
+              <AccountCircle name={chat.sender} />
+              <div>
+                <h5>{chat.sender}</h5>
+                <h6>{chat.time}</h6>
+              </div>
+            </div>
+            <div className='chat-body'>
+              <p>{chat.body}</p>
+            </div>
+          </div>
+        </li>
+      )
+    })
 
-    const selectedUID = localStorage.getItem('uid')
-    const style =
-      selectedUID === chat.sender.uid ? 'chat-message sender' : 'chat-message'
     return (
-      <li className={style} key={chat.id}>
-        <p className='chat'>{chat.sender.uid}</p>
-        <p className='chat'>{chat.body}</p>
-        <p className='chat'>{time}</p>
-        <p className='chat'>{date}</p>
-      </li>
+      <div key={key}>
+        <header className='chat-divider-header'>
+          <div className='chat-line'></div>
+          <h5>{key}</h5>
+          <div className='chat-line'></div>
+        </header>
+        <ul className='chat-container'>{chatList}</ul>
+      </div>
     )
   })
-  return (
-    <section className='chat-container'>
-      <ul>{chatList}</ul>
-    </section>
-  )
+  return <section className='chatlist-container'>{chatDate}</section>
 }
 
 export default Channel
