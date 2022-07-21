@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function ChatBox({ channelName: name }) {
+function ChatBox() {
   const [message, setMessage] = useState('')
   return (
     <div>
@@ -8,9 +8,9 @@ function ChatBox({ channelName: name }) {
         className='chatbox'
         value={message}
         onChange={e => setMessage(e.target.value)}
-        placeholder={`Message ${name}`}
+        placeholder={'Message'}
       ></textarea>
-      <button>Send</button>
+      <button className='btn-round'>Send</button>
     </div>
   )
 }

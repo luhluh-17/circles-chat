@@ -19,7 +19,7 @@ function ChatContainer({ chats }) {
     )
   })
 
-  return <section>{chatList}</section>
+  return <div className='chatlist-container'>{chatList}</div>
 }
 
 export default ChatContainer
