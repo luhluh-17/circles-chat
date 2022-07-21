@@ -1,0 +1,18 @@
+.members-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.members-count {
+  border: 2px solid var(--clr-grey-500);
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  color: var(--clr-grey-400);
+
+  &:hover {
+    color: var(--clr-grey-300);
+    background-color: var(--clr-secondary-dark);
+    cursor: pointer;
+  }
+}

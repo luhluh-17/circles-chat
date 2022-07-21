@@ -11,8 +11,8 @@ function Channel() {
   const [chats, setChats] = useState([])
   const { channelId } = useParams()
 
-  const handleSuccess = reponse => {
-    const chatList = reponse.data.map(chat => {
+  const handleSuccess = response => {
+    const chatList = response.data.map(chat => {
       const date = new Date(chat.created_at)
 
       return {
@@ -38,7 +38,7 @@ function Channel() {
 
   return (
     <div className='channel-container'>
-      <MembersButton />
+      <MembersButton id={channelId} />
       <ChatContainer chats={chats} />
       <ChatBox />
     </div>

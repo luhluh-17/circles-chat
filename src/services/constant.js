@@ -8,3 +8,5 @@ export const ADD_MEMBER = '/channel/add_member'
 
 export const READ_MESSAGE = (id, type) =>
   `${MESSAGES}/?receiver_id=${id}&receiver_class=${type}`
+
+export const CHANNEL_MEMBERS = id => `${CHANNELS}/${id}`
