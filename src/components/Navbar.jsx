@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import AccountCircle from './AccountCircle'
+import ProfileIcon from './ProfileIcon'
 import Searchbar from './Searchbar'
 
 function Navbar() {
@@ -34,7 +34,7 @@ function Navbar() {
           <span className='material-symbols-outlined icon'>notifications</span>
         </li>
         <li onClick={handleLogout}>
-          <AccountCircle name={localStorage.getItem('uid')} />
+          <ProfileIcon name={localStorage.getItem('uid')} />
         </li>
       </ul>
     </nav>

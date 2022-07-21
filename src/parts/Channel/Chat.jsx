@@ -1,5 +1,5 @@
 import React from 'react'
-import AccountCircle from '../../components/AccountCircle'
+import ProfileIcon from '../../components/ProfileIcon'
 
 function Chat({ chat }) {
   const loggedUser = localStorage.getItem('uid')
@@ -10,7 +10,7 @@ function Chat({ chat }) {
     <li className={styleChat}>
       <div>
         <div className={styleHeader}>
-          <AccountCircle name={chat.sender} />
+          <ProfileIcon name={chat.sender} />
           <div>
             <h5>{chat.sender}</h5>
             <h6>{chat.time}</h6>
