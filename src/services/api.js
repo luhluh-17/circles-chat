@@ -19,8 +19,8 @@ export const apiGET = async (url, onSuccess, onError) => {
     .catch(error => onError(error.message))
 }
 
-export const apiPOST = (url, data, onSuccess, onError) => {
-  api
+export const apiPOST = async (url, data, onSuccess, onError) => {
+  await api
     .post(url, data)
     .then(result => onSuccess(result))
     .catch(error => onError(error))
