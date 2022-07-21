@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 function ChatBox() {
   const [message, setMessage] = useState('')
   return (
-    <div>
+    <div className='chatbox-container'>
       <textarea
         className='chatbox'
         value={message}

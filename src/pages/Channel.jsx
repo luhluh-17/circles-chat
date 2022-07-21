@@ -3,8 +3,9 @@ import { useParams } from 'react-router-dom'
 import { groupBy } from 'lodash'
 import { apiGET } from '../services/api'
 import { READ_MESSAGE } from '../services/constant'
-import ChatBox from '../components/ChatBox'
-import ChatTemp from '../parts/Channel/ChatTemp'
+import ChatContainer from '../parts/Channel/ChatContainer'
+import ChatBox from '../parts/Channel/ChatBox'
+import MembersButton from '../parts/Channel/MembersButton'
 
 function Channel() {
   const [chats, setChats] = useState([])
@@ -36,10 +37,11 @@ function Channel() {
   }, [channelId])
 
   return (
-    <section className='channel-container'>
-      <ChatTemp />
+    <div className='channel-container'>
+      <MembersButton />
+      <ChatContainer chats={chats} />
       <ChatBox />
-    </section>
+    </div>
   )
 }
 

@@ -1,11 +1,14 @@
-.content {
+.app-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  background-color: var(--clr-primary-dark);
+}
+
+.app-content {
+  display: flex;
+  flex-direction: column;
   background-color: var(--clr-primary-dark);
   height: 100vh;
   width: 100%;
-  color: black;
-}
-
-.content-container {
-  display: flex;
-  flex-direction: row;
 }
