@@ -6,7 +6,7 @@ function Searchbar() {
   const handleSearch = e => setSearch(e.target.value)
   return (
     <input
-      className='inputfield'
+      className='navbar-search'
       type='text'
       autoComplete='on'
       placeholder='Search'

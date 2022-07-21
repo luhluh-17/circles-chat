@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import Logo from './Logo'
 import ProfileIcon from './ProfileIcon'
 import Searchbar from './Searchbar'
 
@@ -22,6 +23,7 @@ function Navbar() {
 
   return (
     <nav className='navbar'>
+      <Logo />
       <Searchbar />
       <ul className='navbar-items'>
         <li onClick={navigateToHome}>

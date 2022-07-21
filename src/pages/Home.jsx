@@ -5,12 +5,13 @@ import Sidebar from '../components/Sidebar'
 
 function Home() {
   return (
-    <section className='app-container'>
-      <Sidebar />
+    <section className='home-container'>
+      <Navbar />
+      {/* <Sidebar />
       <section className='app-content'>
         <Navbar />
         <Outlet />
-      </section>
+      </section> */}
     </section>
   )
 }

@@ -4,7 +4,17 @@
   justify-content: space-between;
   gap: 1rem;
   padding: 0.75rem;
-  border-bottom: 2px solid var(--clr-secondary-dark);
+  background-color: var(--clr-tertiary-900);
+}
+
+.navbar-search {
+  width: 18rem;
+  padding: 0.375rem 0.75rem;
+  border: 1px solid var(--clr-tertiary-800);
+  border-radius: 1rem;
+  background-color: var(--clr-tertiary-800);
+  color: var(--clr-grey-300);
+  outline: none;
 }
 
 .navbar-items {
