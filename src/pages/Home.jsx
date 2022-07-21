@@ -7,11 +7,10 @@ function Home() {
   return (
     <section className='home-container'>
       <Navbar />
-      {/* <Sidebar />
-      <section className='app-content'>
-        <Navbar />
+      <section className='home-content'>
+        <Sidebar />
         <Outlet />
-      </section> */}
+      </section>
     </section>
   )
 }
