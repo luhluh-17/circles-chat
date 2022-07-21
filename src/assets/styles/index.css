@@ -243,7 +243,8 @@ body {
   padding: 0 1rem;
   overflow-y: auto;
   scroll-snap-type: y mandatory;
-  max-height: 80%;
+  height: 30rem;
+  width: 50vw;
 }
 
 .chat-divider-header {
@@ -292,6 +293,18 @@ body {
   padding: 0.5rem 1rem;
   background-color: var(--clr-secondary-dark);
   border-radius: 1rem;
+}
+
+.chatbox {
+  height: 4rem;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  color: var(--clr-grey-400);
+  font-size: 1rem;
+  border-radius: var(--borderRadius);
+  background: var(--clr-secondary-dark);
+  border: 1px solid var(--clr-grey-200);
+  resize: none;
 }
 
 .main-container {
@@ -437,6 +450,12 @@ body {
 
 .active {
   background-color: var(--clr-primary);
+}
+
+.channel-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 1rem;
 }
 
 .content {

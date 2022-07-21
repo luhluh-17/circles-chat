@@ -1,8 +1,11 @@
 @use 'abstracts/variables';
+
 @use 'base/reset';
 @use 'base/typography';
+
 @use 'utils/display';
 @use 'utils/margin';
+
 @use 'components/account-circle';
 @use 'components/button';
 @use 'components/chat';
@@ -13,5 +16,7 @@
 @use 'components/navbar';
 @use 'components/scrollbar';
 @use 'components/sidebar';
+
+@use 'pages/channel';
 @use 'pages/home';
 @use 'pages/landing';

@@ -3,7 +3,8 @@ import { useParams } from 'react-router-dom'
 import { groupBy } from 'lodash'
 import { apiGET } from '../services/api'
 import { READ_MESSAGE } from '../services/constant'
-import AccountCircle from '../components/AccountCircle'
+import ChatBox from '../components/ChatBox'
+import ChatTemp from '../parts/Channel/ChatTemp'
 
 function Channel() {
   const [chats, setChats] = useState([])
@@ -34,42 +35,12 @@ function Channel() {
     apiGET(READ_MESSAGE(channelId, 'Channel'), handleSuccess, handleError)
   }, [channelId])
 
-  const chatDate = Object.entries(chats).map(([key, value]) => {
-    const chatList = value.map(chat => {
-      const loggedUser = localStorage.getItem('uid')
-      const styleChat = loggedUser === chat.sender ? 'chat reverse' : 'chat'
-      const styleHeader =
-        loggedUser === chat.sender ? ' chat-header reverse' : 'chat-header'
-      return (
-        <li className={styleChat} key={chat.id}>
-          <div>
-            <div className={styleHeader}>
-              <AccountCircle name={chat.sender} />
-              <div>
-                <h5>{chat.sender}</h5>
-                <h6>{chat.time}</h6>
-              </div>
-            </div>
-            <div className='chat-body'>
-              <p>{chat.body}</p>
-            </div>
-          </div>
-        </li>
-      )
-    })
-
-    return (
-      <div key={key}>
-        <header className='chat-divider-header'>
-          <div className='chat-line'></div>
-          <h5>{key}</h5>
-          <div className='chat-line'></div>
-        </header>
-        <ul className='chat-container'>{chatList}</ul>
-      </div>
-    )
-  })
-  return <section className='chatlist-container'>{chatDate}</section>
+  return (
+    <section className='channel-container'>
+      <ChatTemp />
+      <ChatBox />
+    </section>
+  )
 }
 
 export default Channel
