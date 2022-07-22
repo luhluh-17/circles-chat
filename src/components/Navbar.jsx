@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import Icon from './Icon'
 import Logo from './Logo'
 import ProfileIcon from './ProfileIcon'
 import Searchbar from './Searchbar'
@@ -27,13 +28,13 @@ function Navbar() {
       <Searchbar />
       <ul className='navbar-items'>
         <li onClick={navigateToHome}>
-          <span className='material-symbols-outlined icon'>home</span>
+          <Icon icon='home' />
         </li>
         <li onClick={navigateToMessages}>
-          <span className='material-symbols-outlined icon'>mail</span>
+          <Icon icon='mail' />
         </li>
         <li>
-          <span className='material-symbols-outlined icon'>notifications</span>
+          <Icon icon='notifications' />
         </li>
         <li onClick={handleLogout}>
           <ProfileIcon name={localStorage.getItem('uid')} />
