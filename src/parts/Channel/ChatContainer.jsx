@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import Chat from './Chat'
 
 function ChatContainer({ chats }) {
+  const bottomRef = useRef(null)
+
   const chatList = Object.entries(chats).map(([key, value]) => {
     const chatList = value.map(chat => {
       return <Chat chat={chat} key={chat.id} />
@@ -19,7 +21,16 @@ function ChatContainer({ chats }) {
     )
   })
 
-  return <div className='chatlist-container'>{chatList}</div>
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }, [chatList])
+
+  return (
+    <div className='chatlist-container'>
+      {chatList}
+      <div ref={bottomRef} />
+    </div>
+  )
 }
 
 export default ChatContainer
