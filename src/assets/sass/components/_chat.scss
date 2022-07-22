@@ -1,6 +1,8 @@
 .chatlist-container {
-  height: 21rem;
+  flex: 1;
+  padding-top: 1rem;
   overflow-y: auto;
+  margin: 0 1rem;
 }
 
 .chat-divider-header {
@@ -52,21 +54,21 @@
   display: inline-block;
   margin: 0.25rem 3rem;
   padding: 0.5rem 1rem;
-  background-color: var(--clr-secondary-dark);
+  background-color: var(--clr-tertiary-900);
   border-radius: 1rem;
 }
 
 .chatbox-container {
   display: flex;
-  flex-direction: column;
   align-items: flex-end;
   justify-content: flex-end;
   gap: 1rem;
-  padding: 0 1rem;
+  padding: 1rem;
+  background-color: var(--clr-primary-900);
+  border-top: 1px solid var(--clr-primary-700);
 }
 
 .chatbox {
-  height: 4rem;
   width: 100%;
   padding: 0.375rem 0.75rem;
   color: var(--clr-grey-400);

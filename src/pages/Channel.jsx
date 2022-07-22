@@ -4,7 +4,7 @@ import { groupBy } from 'lodash'
 import { apiGET } from '../services/api'
 import { READ_MESSAGE } from '../services/constant'
 import ChatContainer from '../parts/Channel/ChatContainer'
-import ChatBox from '../parts/Channel/ChatBox'
+import ChatTextField from '../parts/Channel/ChatTextField'
 import ChannelHeader from '../parts/Channel/ChannelHeader'
 
 function Channel() {
@@ -40,7 +40,7 @@ function Channel() {
     <div className='channel-container'>
       <ChannelHeader id={channelId} />
       <ChatContainer chats={chats} />
-      <ChatBox />
+      <ChatTextField />
     </div>
   )
 }

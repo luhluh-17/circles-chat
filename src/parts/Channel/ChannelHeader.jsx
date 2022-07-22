@@ -35,6 +35,7 @@ function ChannelHeader({ id, users }) {
 
   const handleClick = () => {
     console.log(owner)
+    console.log(members)
   }
   useEffect(() => {
     apiGET(CHANNEL_MEMBERS(id), handleSuccess, handleError)

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import Icon from '../../components/Icon'
 
-function ChatBox() {
+function ChatTextField() {
   const [message, setMessage] = useState('')
   return (
     <div className='chatbox-container'>
@@ -10,9 +11,11 @@ function ChatBox() {
         onChange={e => setMessage(e.target.value)}
         placeholder={'Message'}
       ></textarea>
-      <button className='btn-round'>Send</button>
+      <button>
+        <Icon icon='send' />
+      </button>
     </div>
   )
 }
 
-export default ChatBox
+export default ChatTextField
