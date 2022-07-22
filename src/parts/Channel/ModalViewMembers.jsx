@@ -48,7 +48,7 @@ function ModalViewMembers({ isOpen, onClose }) {
       <ul className='memberlist-container'>
         <MemberItem user={owner} title='Owner' />
         {members.map(member => {
-          return <MemberItem user={member} />
+          return <MemberItem user={member} key={member.id} />
         })}
       </ul>
     </Modal>
