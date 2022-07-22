@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react'
+import Icon from './Icon'
 
-function Modal({ children, title = '', subtitle = '', isOpen, onClose }) {
+function Modal({ children, isOpen, onClose }) {
   const dialogRef = useRef(null)
 
   useEffect(() => {
@@ -25,10 +26,14 @@ function Modal({ children, title = '', subtitle = '', isOpen, onClose }) {
   }, [onClose])
 
   return (
-    <dialog ref={dialogRef}>
+    <dialog className='dialog' ref={dialogRef}>
       <div className='modal'>
-        <h3>{title}</h3>
-        <h4>{subtitle}</h4>
+        <div className='modal-close-container'>
+          <div></div>
+          <div className='btn-x' onClick={onClose}>
+            <Icon icon='close' />
+          </div>
+        </div>
         {children}
       </div>
     </dialog>
