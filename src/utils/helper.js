@@ -7,3 +7,9 @@ export const capitalText = str => {
 }
 
 export const getInitials = word => word.charAt(0).toUpperCase()
+
+export const savedUsersToLocal = users => {
+  localStorage.setItem('users', JSON.stringify(users))
+}
+
+export const getUsersFromLocal = () => JSON.parse(localStorage.getItem('users'))
