@@ -6,7 +6,13 @@ export const capitalText = str => {
   return arr.join(' ')
 }
 
-export const getInitials = word => word.charAt(0).toUpperCase()
+export const getInitials = word => {
+  if (word === null || word === undefined) {
+    return '?'
+  } else {
+    return word.charAt(0).toUpperCase()
+  }
+}
 
 export const savedUsersToLocal = users => {
   localStorage.setItem('users', JSON.stringify(users))
