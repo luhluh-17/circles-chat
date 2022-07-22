@@ -33,14 +33,19 @@ function Channel() {
   }
 
   useEffect(() => {
-    apiGET(READ_MESSAGE(channelId, 'Channel'), handleSuccess, handleError)
+    const subscribeAPI = setInterval(() => {
+      apiGET(READ_MESSAGE(channelId, 'Channel'), handleSuccess, handleError)
+    }, 600)
+    return () => {
+      clearInterval(subscribeAPI)
+    }
   }, [channelId])
 
   return (
     <div className='channel-container'>
       <ChannelHeader id={channelId} />
       <ChatContainer chats={chats} />
-      <ChatTextField />
+      <ChatTextField id={channelId} obj='Channel' />
     </div>
   )
 }
