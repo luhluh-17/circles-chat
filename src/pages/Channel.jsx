@@ -5,9 +5,9 @@ import Sidebar from '../components/Sidebar'
 
 function Channel() {
   return (
-    <section className='home-container'>
+    <section className='app-container'>
       <Navbar />
-      <section className='home-content'>
+      <section className='app-content'>
         <Sidebar />
         <Outlet />
       </section>

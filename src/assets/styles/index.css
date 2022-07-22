@@ -582,6 +582,20 @@ body {
   background-color: var(--clr-primary);
 }
 
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: var(--clr-primary-900);
+}
+
+.app-content {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+}
+
 .channel-container {
   display: flex;
   flex-direction: column;
@@ -604,20 +618,6 @@ body {
   font-family: "Comfortaa", cursive;
   font-weight: 700;
   text-align: center;
-}
-
-.home-container {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  background-color: var(--clr-primary-900);
-}
-
-.home-content {
-  display: flex;
-  flex-direction: row;
-  height: 100vh;
-  width: 100vw;
 }
 
 .hero-section {
