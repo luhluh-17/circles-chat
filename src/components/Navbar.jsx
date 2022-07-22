@@ -28,7 +28,7 @@ function Navbar() {
       <Searchbar />
       <ul className='navbar-items'>
         <li onClick={navigateToHome}>
-          <Icon icon='home' />
+          <Icon icon='diversity_3' />
         </li>
         <li onClick={navigateToMessages}>
           <Icon icon='mail' />

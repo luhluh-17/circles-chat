@@ -35,7 +35,7 @@ function Channel() {
   useEffect(() => {
     const subscribeAPI = setInterval(() => {
       apiGET(READ_MESSAGE(channelId, 'Channel'), handleSuccess, handleError)
-    }, 600)
+    }, 1000)
     return () => {
       clearInterval(subscribeAPI)
     }

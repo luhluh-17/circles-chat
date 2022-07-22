@@ -12,11 +12,15 @@
 .btn-form {
   @extend .btn;
   width: 100%;
-  background-color: var(--clr-primary);
+  background-color: var(--clr-secondary-800);
   color: var(--clr-white);
   padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  transition: 1s;
+
   &:hover {
     box-shadow: var(--shadow-4);
+    background-color: var(--clr-secondary-900);
     cursor: pointer;
   }
 }

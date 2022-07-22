@@ -27,7 +27,7 @@
   --clr-tertiary-400: #9d9db3;
   --clr-tertiary-500: #7a7b90;
   --clr-tertiary-600: #545569;
-  --clr-tertiary-700: #424356;
+  --clr-tertiary-700: #2e3046;
   --clr-tertiary-800: #151624;
   --clr-tertiary-900: #000018;
   --clr-primary: #1363df;
@@ -222,12 +222,15 @@ body {
 
 .btn-form {
   width: 100%;
-  background-color: var(--clr-primary);
+  background-color: var(--clr-secondary-800);
   color: var(--clr-white);
   padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  transition: 1s;
 }
 .btn-form:hover {
   box-shadow: var(--shadow-4);
+  background-color: var(--clr-secondary-900);
   cursor: pointer;
 }
 
@@ -385,18 +388,18 @@ body {
   font-size: var(--small-text);
   margin-bottom: 0.5rem;
   letter-spacing: var(--letterSpacing);
+  font-family: "Comfortaa", cursive;
 }
 
 .form-input {
   width: 100%;
-  padding: 0.375rem 0.75rem;
+  padding: 0.75rem 1rem;
   border: 1px solid var(--grey-200);
-  border-radius: var(--borderRadius);
   outline: none;
-}
-
-.form-btn {
-  width: 100%;
+  background-color: var(--clr-tertiary-700);
+  border: 0;
+  border-radius: 0.5rem;
+  color: var(--clr-grey-300);
 }
 
 .form-text {
@@ -434,6 +437,46 @@ body {
 .brand-img {
   width: 2.25rem;
   height: 2.25rem;
+}
+
+.dialog {
+  background-color: var(--clr-tertiary-900);
+  box-shadow: var(--shadow-4);
+  border-radius: 1rem;
+}
+.dialog::backdrop {
+  background-color: rgba(6, 39, 60, 0.5);
+}
+
+.modal {
+  color: var(--clr-grey-300);
+  padding: 1rem;
+}
+
+.modal-close-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-input {
+  width: 18rem;
+  padding: 0.375rem 0.75rem;
+  background-color: var(--clr-tertiary-800);
+  border: 0;
+  border-radius: 0.75rem;
+  color: var(--clr-grey-300);
+  outline: none;
+}
+
+.btn-x {
+  cursor: pointer;
+  transition: 1s;
+  color: var(--clr-grey-500);
+}
+.btn-x:hover {
+  color: var(--clr-grey-300);
 }
 
 .navbar {
@@ -489,7 +532,8 @@ body {
   background-color: var(--clr-tertiary-800);
   color: var(--clr-grey-300);
   height: 100%;
-  width: 20rem;
+  width: 15rem;
+  min-width: 15rem;
 }
 
 .sidebar-header {
@@ -523,6 +567,9 @@ body {
   padding: 0.5rem 1rem;
   border-bottom: 0.25px solid var(--clr-grey-700);
   text-decoration: none;
+  font-family: "Comfortaa", cursive;
+  font-weight: 700;
+  text-align: center;
 }
 .link:hover {
   cursor: pointer;
