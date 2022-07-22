@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { groupBy } from 'lodash'
-import { apiGET } from '../services/api'
-import { READ_MESSAGE } from '../services/constant'
 import ChatContainer from '../parts/Channel/ChatContainer'
 import ChatTextField from '../parts/Channel/ChatTextField'
-import ChannelHeader from '../parts/Channel/ChannelHeader'
+import MessageHeader from '../parts/Messages/MessageHeader'
+import { apiGET } from '../services/api'
+import { READ_MESSAGE } from '../services/constant'
 
-function ChannelDetails() {
+function MessageDetails() {
   const [chats, setChats] = useState([])
   const { id } = useParams()
 
   const handleSuccess = response => {
     const chatList = response.data.map(chat => {
       const date = new Date(chat.created_at)
-
       return {
         id: chat.id,
         body: chat.body,
@@ -23,7 +22,6 @@ function ChannelDetails() {
         sender: chat.sender.uid,
       }
     })
-
     const chatListByDate = groupBy(chatList, chat => chat.date)
     setChats(state => {
       if (JSON.stringify(state) === JSON.stringify(chatListByDate)) {
@@ -34,14 +32,14 @@ function ChannelDetails() {
     })
   }
 
-  const handleError = message => {
-    console.log(message)
+  const handleError = error => {
+    console.log(error)
   }
 
   useEffect(() => {
     const subscribeAPI = setInterval(() => {
-      apiGET(READ_MESSAGE(id, 'Channel'), handleSuccess, handleError)
-    }, 3000)
+      apiGET(READ_MESSAGE(id, 'User'), handleSuccess, handleError)
+    }, 1000)
     return () => {
       clearInterval(subscribeAPI)
     }
@@ -49,11 +47,11 @@ function ChannelDetails() {
 
   return (
     <div className='channel-container'>
-      <ChannelHeader id={id} />
+      <MessageHeader />
       <ChatContainer chats={chats} />
-      <ChatTextField id={id} obj='Channel' />
+      <ChatTextField id={id} obj='User' />
     </div>
   )
 }
 
-export default ChannelDetails
+export default MessageDetails

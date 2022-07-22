@@ -15,7 +15,7 @@ function Navbar() {
     const users = response.data
     const userList = []
     users.forEach(user => {
-      userList.push({ id: user.id, email: user.email })
+      userList.push({ id: user.id, name: user.email })
     })
 
     savedUsersToLocal(userList)

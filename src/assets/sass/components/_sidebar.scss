@@ -25,6 +25,13 @@
   font-weight: 700;
 }
 
+.sidebar-item-container {
+  height: 70%;
+  max-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
 .sidebar-btns {
   display: flex;
   align-items: center;

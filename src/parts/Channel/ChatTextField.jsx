@@ -14,12 +14,13 @@ function ChatTextField({ id, obj }) {
     }
 
     const onSuccess = response => {
-      console.log(response.data)
+      console.log(response)
     }
 
     const onError = error => {
       console.log(error)
     }
+
     apiPOST(MESSAGES, data, onSuccess, onError)
     setMessage('')
   }
