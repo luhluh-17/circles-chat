@@ -1,6 +1,7 @@
 .chatlist-container {
   padding-top: 1rem;
   overflow-y: auto;
+  overflow-x: hidden;
   height: 25rem;
   width: 100%;
   background-color: var(--clr-primary-900);

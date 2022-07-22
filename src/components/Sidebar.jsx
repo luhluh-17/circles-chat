@@ -34,13 +34,11 @@ function Sidebar() {
   }, [])
 
   return (
-    <>
-      <aside className='sidebar'>
-        <SidebarHeader icon='diversity_3' title='Channels' onAdd={handleAdd} />
-        <SidebarItems list={response?.data} errors={response?.errors} />
-      </aside>
+    <aside className='sidebar'>
+      <SidebarHeader icon='diversity_3' title='Channels' onAdd={handleAdd} />
+      <SidebarItems list={response?.data} errors={response?.errors} />
       <ModalAddChannel isOpen={isOpen} onClose={closeDialog} />
-    </>
+    </aside>
   )
 }
 
