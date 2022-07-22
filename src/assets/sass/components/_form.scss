@@ -8,7 +8,8 @@
 }
 
 .form-label {
-  display: block;
+  display: flex;
+  flex-direction: column;
   font-size: var(--small-text);
   margin-bottom: 0.5rem;
   letter-spacing: var(--letterSpacing);
