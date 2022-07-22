@@ -129,15 +129,6 @@ body {
   text-align: center;
 }
 
-.sidebar-header-title {
-  font-family: "Comfortaa", cursive;
-  font-weight: 700;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
 .error {
   color: var(--clr-red);
 }
@@ -545,6 +536,16 @@ body {
   border-bottom: 1px solid var(--clr-grey-700);
   padding: 0.875rem 0.75rem;
   height: 3.5rem;
+}
+
+.sidebar-header-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "Comfortaa", cursive;
+  font-weight: 700;
 }
 
 .sidebar-btns {

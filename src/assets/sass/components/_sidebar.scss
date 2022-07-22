@@ -15,6 +15,16 @@
   height: 3.5rem;
 }
 
+.sidebar-header-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Comfortaa', cursive;
+  font-weight: 700;
+}
+
 .sidebar-btns {
   display: flex;
   align-items: center;
