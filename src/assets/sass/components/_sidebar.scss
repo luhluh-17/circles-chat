@@ -2,7 +2,8 @@
   background-color: var(--clr-tertiary-800);
   color: var(--clr-grey-300);
   height: 100%;
-  width: 20rem;
+  width: 15rem;
+  min-width: 15rem;
 }
 
 .sidebar-header {
@@ -36,6 +37,9 @@
   padding: 0.5rem 1rem;
   border-bottom: 0.25px solid var(--clr-grey-700);
   text-decoration: none;
+  font-family: 'Comfortaa', cursive;
+  font-weight: 700;
+  text-align: center;
   &:hover {
     cursor: pointer;
     background-color: var(--clr-primary);
