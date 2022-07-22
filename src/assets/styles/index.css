@@ -432,6 +432,51 @@ body {
   height: 2.25rem;
 }
 
+.memberlist-container {
+  width: 30rem;
+  height: 20rem;
+  overflow-y: auto;
+}
+
+.member-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.25rem 1rem;
+  transition: 1s;
+}
+.member-item:hover {
+  background-color: var(--clr-primary-900);
+}
+
+.member-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.member-details {
+  display: flex;
+  flex-direction: column;
+}
+.member-details h4 {
+  color: var(--clr-grey-400);
+}
+.member-details h5 {
+  color: var(--clr-grey-500);
+}
+
+.member-message {
+  transition: 1s;
+}
+.member-message:hover {
+  cursor: pointer;
+  color: var(--clr-secondary-800);
+}
+
 .dialog {
   background-color: var(--clr-tertiary-900);
   box-shadow: var(--shadow-4);

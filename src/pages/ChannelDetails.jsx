@@ -9,13 +9,13 @@ import ChannelHeader from '../parts/Channel/ChannelHeader'
 import axios from 'axios'
 
 function ChannelDetails() {
+  const [chats, setChats] = useState([])
+  const { id } = useParams()
+
   const API = axios.create({
     baseURL: BASE_URL,
     headers: getHeaders(),
   })
-
-  const [chats, setChats] = useState([])
-  const { id } = useParams()
 
   const handleSuccess = response => {
     const chatList = response.data.map(chat => {
@@ -47,15 +47,17 @@ function ChannelDetails() {
   useEffect(() => {
     const subscribeAPI = setInterval(() => {
       apiGET(API, READ_MESSAGE(id, 'Channel'), handleSuccess, handleError)
-    }, 3000)
+    }, 1000)
+
     return () => {
       clearInterval(subscribeAPI)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id])
 
   return (
     <div className='channel-container'>
-      <ChannelHeader id={id} />
+      <ChannelHeader />
       <ChatContainer chats={chats} />
       <ChatTextField id={id} obj='Channel' />
     </div>

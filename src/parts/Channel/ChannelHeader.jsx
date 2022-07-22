@@ -1,68 +1,31 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Icon from '../../components/Icon'
-import { apiGET, getHeaders } from '../../services/api'
-import { BASE_URL, CHANNEL_MEMBERS, USERS } from '../../services/constant'
+import ModalViewMembers from './ModalViewMembers'
 
-function ChannelHeader({ id }) {
-  const API = axios.create({
-    baseURL: BASE_URL,
-    headers: getHeaders(),
-  })
+function ChannelHeader() {
+  const [isOpen, setIsOpen] = useState(false)
 
-  const [owner, setOwner] = useState({})
-  const [members, setMembers] = useState([])
-
-  const handleSuccess = response => {
-    const { channel_members, owner_id } = response.data
-    const memberIds = channel_members.map(member => member.user_id)
-
-    apiGET(
-      API,
-      USERS,
-      response => {
-        const userList = response.data
-
-        const owner = userList.find(user => user.id === owner_id)
-        setOwner(owner)
-
-        const memberList = userList.filter(user => memberIds.includes(user.id))
-        setMembers(memberList)
-      },
-
-      message => {
-        console.log(message)
-      }
-    )
-  }
-
-  const handleError = message => {
-    console.log(message)
-  }
-
-  const handleClick = () => {
-    console.log(owner)
-    console.log(members)
-  }
-  useEffect(() => {
-    apiGET(API, CHANNEL_MEMBERS(id), handleSuccess, handleError)
-  }, [id])
+  const toggleDialog = () => setIsOpen(bool => !bool)
+  const closeDialog = () => setIsOpen(false)
 
   return (
-    <div className='channel-header'>
-      <h4>#DiscussionThread</h4>
-      <ul className='navbar-items'>
-        <li onClick={handleClick}>
-          <Icon icon='call' />
-        </li>
-        <li onClick={handleClick}>
-          <Icon icon='people' />
-        </li>
-        <li>
-          <Icon icon='more_vert' />
-        </li>
-      </ul>
-    </div>
+    <>
+      <div className='channel-header'>
+        <h4>#DiscussionThread</h4>
+        <ul className='navbar-items'>
+          <li>
+            <Icon icon='call' />
+          </li>
+          <li onClick={toggleDialog}>
+            <Icon icon='people' />
+          </li>
+          <li>
+            <Icon icon='more_vert' />
+          </li>
+        </ul>
+      </div>
+      <ModalViewMembers isOpen={isOpen} onClose={closeDialog} />
+    </>
   )
 }
 
