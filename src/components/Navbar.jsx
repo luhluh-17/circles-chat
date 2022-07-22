@@ -46,6 +46,7 @@ function Navbar() {
 
   useEffect(() => {
     apiGET(API, USERS, handleSuccess, handleError)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
