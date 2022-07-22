@@ -7,7 +7,6 @@ import MessageHeader from '../parts/Messages/MessageHeader'
 import { apiGET, getHeaders } from '../services/api'
 import { BASE_URL, READ_MESSAGE } from '../services/constant'
 import axios from 'axios'
-import { getUsersFromLocal } from '../utils/helper'
 
 function MessageDetails() {
   const API = axios.create({
