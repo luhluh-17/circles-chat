@@ -1,7 +1,7 @@
 import React from 'react'
 
 function MainMessages() {
-  return <div>MainMessages</div>
+  return <div></div>
 }
 
 export default MainMessages

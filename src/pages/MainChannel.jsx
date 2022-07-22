@@ -1,7 +1,7 @@
 import React from 'react'
 
 function MainChannel() {
-  return <div>Main Channel</div>
+  return <div></div>
 }
 
 export default MainChannel
