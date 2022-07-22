@@ -7,15 +7,15 @@ import MessageHeader from '../parts/Messages/MessageHeader'
 import { apiGET, getHeaders } from '../services/api'
 import { BASE_URL, READ_MESSAGE } from '../services/constant'
 import axios from 'axios'
+import { getUsersFromLocal } from '../utils/helper'
 
 function MessageDetails() {
   const API = axios.create({
     baseURL: BASE_URL,
     headers: getHeaders(),
   })
-
-  const [chats, setChats] = useState([])
   const { id } = useParams()
+  const [chats, setChats] = useState([])
 
   const handleSuccess = response => {
     const chatList = response.data.map(chat => {
@@ -54,7 +54,7 @@ function MessageDetails() {
 
   return (
     <div className='channel-container'>
-      <MessageHeader />
+      <MessageHeader id={id} />
       <ChatContainer chats={chats} />
       <ChatTextField id={id} obj='User' />
     </div>

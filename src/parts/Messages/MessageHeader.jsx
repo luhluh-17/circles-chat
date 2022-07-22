@@ -1,11 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Icon from '../../components/Icon'
+import { getUsersFromLocal } from '../../utils/helper'
 
-function MessageHeader() {
+function MessageHeader({ id }) {
+  const [selectedUser, setSelectedUser] = useState({})
+
+  useEffect(() => {
+    // TODO fix unable to get user
+    const findUser = getUsersFromLocal().find(user => user.id === id)
+    setSelectedUser(findUser)
+  }, [id])
+
   return (
     <div className='channel-header'>
-      <div></div>
+      <div>{selectedUser?.name}</div>
       <ul className='navbar-items'>
+        <li>
+          <Icon icon='group_add' />
+        </li>
         <li>
           <Icon icon='call' />
         </li>
