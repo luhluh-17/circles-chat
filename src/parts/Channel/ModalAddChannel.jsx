@@ -7,7 +7,7 @@ import { apiPOST } from '../../services/api'
 import { CHANNELS } from '../../services/constant'
 import { validateChannel } from '../../utils/validators'
 
-function ModalAddChannel({ isOpen, onClose }) {
+function ModalAddChannel({ isOpen, onClose, onSuccessCallback }) {
   const [channel, setChannel] = useState('')
   const [error, setError] = useState('')
 
@@ -22,8 +22,9 @@ function ModalAddChannel({ isOpen, onClose }) {
 
       const onSuccess = response => {
         if (response.data?.errors === undefined) {
-          onClose()
+          onSuccessCallback()
           setChannel('')
+          onClose()
         } else {
           setError('has already been taken')
         }

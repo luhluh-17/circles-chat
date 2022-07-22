@@ -23,18 +23,17 @@ function Channel() {
     console.log(message)
   }
 
+  const handleAPICall = () => {
+    apiGET(CHANNELS, handleSuccess, handleError)
+  }
+
   useEffect(() => {
-    const subscribeAPI = setInterval(() => {
-      apiGET(CHANNELS, handleSuccess, handleError)
-    }, 3000)
-    return () => {
-      clearInterval(subscribeAPI)
-    }
+    apiGET(CHANNELS, handleSuccess, handleError)
   }, [])
 
   return (
     <>
-      <section className='app-container'>
+      <main className='app-container'>
         <Navbar />
         <section className='app-content'>
           <Sidebar
@@ -45,8 +44,12 @@ function Channel() {
           />
           <Outlet />
         </section>
-      </section>
-      <ModalAddChannel isOpen={isOpen} onClose={closeDialog} />
+      </main>
+      <ModalAddChannel
+        isOpen={isOpen}
+        onClose={closeDialog}
+        onSuccessCallback={handleAPICall}
+      />
     </>
   )
 }
