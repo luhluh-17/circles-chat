@@ -1,11 +1,12 @@
 import { Route, Routes } from 'react-router-dom'
+import ChannelDetails from './pages/ChannelDetails'
+import MainChannel from './pages/MainChannel'
 import Channel from './pages/Channel'
-import Feed from './pages/Feed'
-import Home from './pages/Home'
 import Landing from './pages/Landing'
 import Login from './pages/Login'
-import Messages from './pages/Messages'
 import Register from './pages/Register'
+import Messages from './pages/Messages'
+import MainMessages from './pages/MainMessages'
 
 function App() {
   return (
@@ -14,11 +15,14 @@ function App() {
       <Route path='login' element={<Login />} />
       <Route path='register' element={<Register />} />
 
-      <Route path='/home' element={<Home />}>
-        <Route index element={<Feed />} />
-        <Route path='channel/:channelId' element={<Channel />} />
-        <Route path='messages' element={<Messages />} />
-        <Route path='messages/:email' element={<Messages />} />
+      <Route path='/channels' element={<Channel />}>
+        <Route index element={<MainChannel />} />
+        <Route path=':channelId' element={<ChannelDetails />} />
+      </Route>
+
+      <Route path='/messages' element={<Messages />}>
+        <Route index element={<MainMessages />} />
+        <Route path=':uid' element={<ChannelDetails />} />
       </Route>
     </Routes>
   )

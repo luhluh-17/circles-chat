@@ -8,8 +8,8 @@ import Searchbar from './Searchbar'
 function Navbar() {
   const navigate = useNavigate()
 
-  const navigateToHome = () => {
-    navigate('/home')
+  const navigateToChannel = () => {
+    navigate('/channels')
   }
 
   const navigateToMessages = () => {
@@ -26,7 +26,7 @@ function Navbar() {
       <Logo />
       <Searchbar />
       <ul className='navbar-items'>
-        <li onClick={navigateToHome}>
+        <li onClick={navigateToChannel}>
           <Icon icon='diversity_3' />
         </li>
         <li onClick={navigateToMessages}>

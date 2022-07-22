@@ -23,7 +23,7 @@ function Login() {
       email: emailRef.current.value,
       password: passwordRef.current.value,
     }
-    const onSuccess = () => navigate('/home')
+    const onSuccess = () => navigate('/channels')
     const onError = errors => setError(errors[0])
 
     authUser(LOGIN, data, onSuccess, onError)

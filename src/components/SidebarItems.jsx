@@ -7,7 +7,7 @@ function SidebarItems({ list = [], errors }) {
 
   const channels = list.map(channel => (
     <li key={channel.id}>
-      <NavLink to={`channel/${channel.id}`} className={style}>
+      <NavLink to={`${channel.id}`} className={style}>
         <h5>{channel.name}</h5>
       </NavLink>
     </li>
