@@ -4,14 +4,14 @@ import Icon from '../../components/Icon'
 function ChatTextField() {
   const [message, setMessage] = useState('')
   return (
-    <div className='chatbox-container'>
+    <div className='chat-textfield-container'>
       <textarea
-        className='chatbox'
+        className='chat-textfield'
         value={message}
         onChange={e => setMessage(e.target.value)}
         placeholder={'Message'}
       ></textarea>
-      <button>
+      <button className='send-btn'>
         <Icon icon='send' />
       </button>
     </div>
