@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Icon from '../../components/Icon'
 import { apiGET } from '../../services/api'
 import { CHANNEL_MEMBERS, USERS } from '../../services/constant'
 
@@ -42,9 +43,17 @@ function ChannelHeader({ id, users }) {
   return (
     <div className='channel-header'>
       <h4>#DiscussionThread</h4>
-      <div className='members-count' onClick={handleClick}>
-        <h5>Members {members.length}</h5>
-      </div>
+      <ul className='navbar-items'>
+        <li onClick={handleClick}>
+          <Icon icon='call' />
+        </li>
+        <li onClick={handleClick}>
+          <Icon icon='people' />
+        </li>
+        <li>
+          <Icon icon='more_vert' />
+        </li>
+      </ul>
     </div>
   )
 }
