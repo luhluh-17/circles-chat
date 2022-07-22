@@ -8,7 +8,6 @@ import { CHANNELS } from '../services/constant'
 
 function Channel() {
   const [response, setResponse] = useState(null)
-
   const [isOpen, setIsOpen] = useState(false)
 
   const toggleDialog = () => setIsOpen(bool => !bool)
