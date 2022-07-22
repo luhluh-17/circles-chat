@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import Logo from '../../components/Logo'
+import background from '../../assets/images/bg-min.jpg'
 
 function HeroSection() {
   const navigate = useNavigate()
@@ -8,7 +9,10 @@ function HeroSection() {
   const handleLogin = () => navigate('/login')
   const handleRegister = () => navigate('/register')
   return (
-    <section className='hero-section'>
+    <section
+      style={{ backgroundImage: `url(${background})` }}
+      className='hero-section'
+    >
       <div className='hero-navbar'>
         <Logo />
         <button className='btn-round' onClick={handleLogin}>

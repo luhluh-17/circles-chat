@@ -6,6 +6,7 @@ import FormHeader from '../components/FormHeader'
 import ButtonText from '../components/ButtonText'
 import UncontrolledInput from '../components/UncontrolledInput'
 import FormButton from '../components/FormButton'
+import background from '../assets/images/bg-min.jpg'
 
 function Login() {
   const emailRef = useRef(null)
@@ -31,7 +32,10 @@ function Login() {
   const handleClick = () => navigate('/register')
 
   return (
-    <main className='main-container'>
+    <main
+      style={{ backgroundImage: `url(${background})` }}
+      className='main-container'
+    >
       <form className='form' autoComplete='on' onSubmit={handleSubmit}>
         <FormHeader
           title={'Welcome Back'}

@@ -366,7 +366,9 @@ body {
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background-color: var(--clr-primary-900);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .form {
@@ -572,7 +574,9 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--clr-primary-900);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   height: 100vh;
   width: 100vw;
 }

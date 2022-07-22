@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { authUser } from '../services/auth'
 import { REGISTER } from '../services/constant'
 import RegisterForm from '../parts/Register/RegisterForm'
+import background from '../assets/images/bg-min.jpg'
 
 function Register() {
   const [error, setError] = useState('')
@@ -22,7 +23,10 @@ function Register() {
   }
 
   return (
-    <main className='main-container'>
+    <main
+      style={{ backgroundImage: `url(${background})` }}
+      className='main-container'
+    >
       <RegisterForm onSubmit={handleSubmit} errorMessage={error} />
     </main>
   )
