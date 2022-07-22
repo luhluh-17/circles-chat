@@ -3,7 +3,7 @@ import Icon from '../../components/Icon'
 import { apiGET } from '../../services/api'
 import { CHANNEL_MEMBERS, USERS } from '../../services/constant'
 
-function ChannelHeader({ id, users }) {
+function ChannelHeader({ id }) {
   const [owner, setOwner] = useState({})
   const [members, setMembers] = useState([])
 
