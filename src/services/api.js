@@ -22,6 +22,6 @@ export const apiGET = async (url, onSuccess, onError) => {
 export const apiPOST = async (url, data, onSuccess, onError) => {
   await api
     .post(url, data)
-    .then(result => onSuccess(result))
+    .then(response => onSuccess(response))
     .catch(error => onError(error))
 }

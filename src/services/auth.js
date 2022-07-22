@@ -9,17 +9,17 @@ const auth = axios.create({
 export const authUser = async (url, data, onSuccess, onError) => {
   await auth
     .post(url, data)
-    .then(result => {
+    .then(response => {
       const {
         data: { id },
-      } = result.data
+      } = response.data
 
       const {
         'access-token': accessToken,
         client,
         expiry,
         uid,
-      } = result.headers
+      } = response.headers
 
       localStorage.setItem('access-token', accessToken)
       localStorage.setItem('client', client)
@@ -27,7 +27,7 @@ export const authUser = async (url, data, onSuccess, onError) => {
       localStorage.setItem('uid', uid)
       localStorage.setItem('id', id)
 
-      onSuccess()
+      onSuccess(response)
     })
     .catch(error => {
       const { errors } = error.response.data

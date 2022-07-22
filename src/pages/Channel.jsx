@@ -16,10 +16,11 @@ function Channel() {
 
   const handleSuccess = response => {
     setResponse(response)
+    console.log(response)
   }
 
-  const handleError = message => {
-    console.log(message)
+  const handleError = error => {
+    console.log(error)
   }
 
   const handleAPICall = () => {
