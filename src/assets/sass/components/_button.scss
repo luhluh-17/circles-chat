@@ -23,8 +23,8 @@
 
 .btn-round {
   @extend .btn;
-  background-color: var(--clr-white);
-  color: var(--clr-black);
+  background-color: var(--clr-tertiary-900);
+  color: var(--clr-white);
   border-radius: 1rem;
 
   &:hover {
@@ -35,14 +35,14 @@
 
 .btn-round-dark {
   @extend .btn-round;
-  background-color: var(--clr-primary-dark);
+  background-color: var(--clr-secondary-800);
   color: var(--clr-white);
   padding: 1rem 2rem;
   font-size: 1.2rem;
 
   &:hover {
     color: var(--clr-white);
-    background-color: var(--clr-primary-dark);
+    background-color: var(--clr-secondary-900);
   }
 }
 

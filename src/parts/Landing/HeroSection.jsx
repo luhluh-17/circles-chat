@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import Logo from '../../components/Logo'
 
 function HeroSection() {
   const navigate = useNavigate()
@@ -9,7 +10,7 @@ function HeroSection() {
   return (
     <section className='hero-section'>
       <div className='hero-navbar'>
-        <h2>Slack Clone</h2>
+        <Logo />
         <button className='btn-round' onClick={handleLogin}>
           Login
         </button>
