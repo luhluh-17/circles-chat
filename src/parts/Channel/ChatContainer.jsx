@@ -5,10 +5,6 @@ function ChatContainer({ chats }) {
   const bottomRef = useRef(null)
 
   const chatList = Object.entries(chats).map(([key, value]) => {
-    const chatList = value.map(chat => {
-      return <Chat chat={chat} key={chat.id} />
-    })
-
     return (
       <div key={key}>
         <header className='chat-divider-header'>
@@ -16,14 +12,18 @@ function ChatContainer({ chats }) {
           <h5>{key}</h5>
           <div className='chat-line'></div>
         </header>
-        <ul className='chat-container'>{chatList}</ul>
+        <ul className='chat-container'>
+          {value.map(chat => {
+            return <Chat chat={chat} key={chat.id} />
+          })}
+        </ul>
       </div>
     )
   })
 
   useEffect(() => {
-    // bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }, [chatList])
+    bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }, [chats])
 
   return (
     <div className='chatlist-container'>

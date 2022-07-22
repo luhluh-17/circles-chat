@@ -25,7 +25,13 @@ function Channel() {
     })
 
     const chatListByDate = groupBy(chatList, chat => chat.date)
-    setChats(chatListByDate)
+    setChats(state => {
+      if (JSON.stringify(state) === JSON.stringify(chatListByDate)) {
+        return state
+      } else {
+        return chatListByDate
+      }
+    })
   }
 
   const handleError = message => {
