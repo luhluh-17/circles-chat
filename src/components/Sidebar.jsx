@@ -5,10 +5,14 @@ import SidebarHeader from './SidebarHeader'
 import SidebarItems from './SidebarItems'
 
 function Sidebar() {
-  const [reponse, setResponse] = useState(null)
+  const [response, setResponse] = useState(null)
 
-  const handleSuccess = reponse => {
-    setResponse(reponse)
+  const handleAdd = () => {
+    alert('add')
+  }
+
+  const handleSuccess = response => {
+    setResponse(response)
   }
 
   const handleError = message => {
@@ -21,8 +25,8 @@ function Sidebar() {
 
   return (
     <aside className='sidebar'>
-      <SidebarHeader />
-      <SidebarItems list={reponse?.data} errors={reponse?.errors} />
+      <SidebarHeader icon='forum' title='Channels' onAdd={handleAdd} />
+      <SidebarItems list={response?.data} errors={response?.errors} />
     </aside>
   )
 }
