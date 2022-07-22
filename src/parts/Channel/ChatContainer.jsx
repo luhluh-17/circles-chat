@@ -22,7 +22,7 @@ function ChatContainer({ chats }) {
   })
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'auto' })
+    // bottomRef.current?.scrollIntoView({ behavior: 'auto' })
   }, [chatList])
 
   return (
