@@ -25,7 +25,12 @@ function Sidebar() {
   }
 
   useEffect(() => {
-    apiGET(CHANNELS, handleSuccess, handleError)
+    const subscribeAPI = setInterval(() => {
+      apiGET(CHANNELS, handleSuccess, handleError)
+    }, 3000)
+    return () => {
+      clearInterval(subscribeAPI)
+    }
   }, [])
 
   return (
