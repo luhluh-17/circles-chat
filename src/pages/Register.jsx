@@ -4,6 +4,11 @@ import { authUser } from '../services/auth'
 import { REGISTER } from '../services/constant'
 import RegisterForm from '../parts/Register/RegisterForm'
 import background from '../assets/images/bg-min.jpg'
+import {
+  validateEmail,
+  validatePassword,
+  validateConfirm,
+} from '../utils/validators'
 
 function Register() {
   const [error, setError] = useState('')
@@ -12,14 +17,20 @@ function Register() {
   const handleSubmit = (e, email, password, confirm) => {
     e.preventDefault()
 
-    const data = {
-      email,
-      password,
-      password_confirmation: confirm,
+    const isEmailValid = validateEmail(email).result
+    const isPassValid = validatePassword(password).result
+    const isConfirmValid = validateConfirm(confirm, password).result
+
+    if (isEmailValid && isPassValid && isConfirmValid) {
+      const data = {
+        email,
+        password,
+        password_confirmation: confirm,
+      }
+      const onSuccess = () => navigate('/home')
+      const onError = errors => setError(errors.email[0])
+      authUser(REGISTER, data, onSuccess, onError)
     }
-    const onSuccess = () => navigate('/home')
-    const onError = errors => setError(errors.email[0])
-    authUser(REGISTER, data, onSuccess, onError)
   }
 
   return (
