@@ -6,8 +6,7 @@ function MessageHeader({ id }) {
   const [selectedUser, setSelectedUser] = useState({})
 
   useEffect(() => {
-    // TODO fix unable to get user
-    const findUser = getUsersFromLocal().find(user => user.id === id)
+    const findUser = getUsersFromLocal().find(user => user.id === parseInt(id))
     setSelectedUser(findUser)
   }, [id])
 
