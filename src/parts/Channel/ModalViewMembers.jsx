@@ -26,7 +26,10 @@ function ModalViewMembers({ isOpen, onClose }) {
     const selectedOwner = userList.find(user => user.id === owner_id)
     setOwner(selectedOwner)
 
-    const filteredMembers = userList.filter(user => memberIds.includes(user.id))
+    const filteredMembers = userList.filter(
+      user => memberIds.includes(user.id) && user.id !== selectedOwner.id
+    )
+
     setMembers(filteredMembers)
   }
 
@@ -36,7 +39,8 @@ function ModalViewMembers({ isOpen, onClose }) {
 
   useEffect(() => {
     apiGET(API, CHANNEL_MEMBERS(id), handleSuccess, handleError)
-  }, [])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id])
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
