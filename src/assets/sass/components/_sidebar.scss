@@ -1,7 +1,7 @@
 .sidebar {
   background-color: var(--clr-tertiary-800);
   color: var(--clr-grey-300);
-  height: 100vh;
+  height: 100%;
   width: 20rem;
 }
 
@@ -9,8 +9,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid var(--clr-grey-500);
+  border-bottom: 1px solid var(--clr-grey-700);
   padding: 0.875rem 0.75rem;
+  height: 3.5rem;
 }
 
 .sidebar-btns {

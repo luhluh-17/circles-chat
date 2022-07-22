@@ -269,7 +269,6 @@ body {
 }
 
 .chatlist-container {
-  padding: 0 1rem;
   height: 21rem;
   overflow-y: auto;
 }
@@ -294,6 +293,7 @@ body {
 
 .chat-container {
   color: var(--clr-grey-300);
+  padding: 0 1rem;
 }
 
 .chat {
@@ -328,6 +328,7 @@ body {
   align-items: flex-end;
   justify-content: flex-end;
   gap: 1rem;
+  padding: 0 1rem;
 }
 
 .chatbox {
@@ -388,24 +389,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.members-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-}
-
-.members-count {
-  border: 2px solid var(--clr-grey-500);
-  border-radius: 0.5rem;
-  padding: 0.25rem 0.5rem;
-  color: var(--clr-grey-400);
-}
-.members-count:hover {
-  color: var(--clr-grey-300);
-  background-color: var(--clr-secondary-dark);
-  cursor: pointer;
 }
 
 .inputfield {
@@ -487,7 +470,7 @@ body {
 .sidebar {
   background-color: var(--clr-tertiary-800);
   color: var(--clr-grey-300);
-  height: 100vh;
+  height: 100%;
   width: 20rem;
 }
 
@@ -495,8 +478,9 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid var(--clr-grey-500);
+  border-bottom: 1px solid var(--clr-grey-700);
   padding: 0.875rem 0.75rem;
+  height: 3.5rem;
 }
 
 .sidebar-btns {
@@ -534,23 +518,45 @@ body {
 .channel-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem;
   width: 100%;
+}
+
+.channel-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 3.5rem;
+  padding: 1rem;
+  background-color: var(--clr-primary-900);
+  border-bottom: 1px solid var(--clr-primary-700);
+  font-family: "Comfortaa", cursive;
+  font-weight: 700;
+  text-align: center;
+}
+
+.members-count {
+  border: 2px solid var(--clr-grey-500);
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  color: var(--clr-grey-400);
+}
+.members-count:hover {
+  color: var(--clr-grey-300);
+  background-color: var(--clr-secondary-dark);
+  cursor: pointer;
 }
 
 .home-container {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-color: var(--clr-primary-dark);
+  background-color: var(--clr-primary-900);
 }
 
 .home-content {
   display: flex;
   flex-direction: row;
-  background-color: var(--clr-primary-dark);
   height: 100vh;
   width: 100%;
 }

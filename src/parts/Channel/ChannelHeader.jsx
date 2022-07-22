@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { apiGET } from '../../services/api'
 import { CHANNEL_MEMBERS, USERS } from '../../services/constant'
 
-function MembersButton({ id, users }) {
+function ChannelHeader({ id, users }) {
   const [owner, setOwner] = useState({})
   const [members, setMembers] = useState([])
 
@@ -40,7 +40,8 @@ function MembersButton({ id, users }) {
   }, [id])
 
   return (
-    <div className='members-container'>
+    <div className='channel-header'>
+      <h4>#DiscussionThread</h4>
       <div className='members-count' onClick={handleClick}>
         <h5>Members {members.length}</h5>
       </div>
@@ -48,4 +49,4 @@ function MembersButton({ id, users }) {
   )
 }
 
-export default MembersButton
+export default ChannelHeader

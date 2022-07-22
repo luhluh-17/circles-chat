@@ -5,7 +5,7 @@ import { apiGET } from '../services/api'
 import { READ_MESSAGE } from '../services/constant'
 import ChatContainer from '../parts/Channel/ChatContainer'
 import ChatBox from '../parts/Channel/ChatBox'
-import MembersButton from '../parts/Channel/MembersButton'
+import ChannelHeader from '../parts/Channel/ChannelHeader'
 
 function Channel() {
   const [chats, setChats] = useState([])
@@ -38,7 +38,7 @@ function Channel() {
 
   return (
     <div className='channel-container'>
-      <MembersButton id={channelId} />
+      <ChannelHeader id={channelId} />
       <ChatContainer chats={chats} />
       <ChatBox />
     </div>
