@@ -1,6 +1,8 @@
 .channel-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--clr-primary-900);
   width: 100%;
 }
 
