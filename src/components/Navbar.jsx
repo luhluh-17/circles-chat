@@ -1,7 +1,8 @@
+import axios from 'axios'
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { apiGET } from '../services/api'
-import { USERS } from '../services/constant'
+import { apiGET, getHeaders } from '../services/api'
+import { BASE_URL, USERS } from '../services/constant'
 import { savedUsersToLocal } from '../utils/helper'
 import Icon from './Icon'
 import Logo from './Logo'
@@ -9,6 +10,11 @@ import ProfileIcon from './ProfileIcon'
 import Searchbar from './Searchbar'
 
 function Navbar() {
+  const API = axios.create({
+    baseURL: BASE_URL,
+    headers: getHeaders(),
+  })
+
   const navigate = useNavigate()
 
   const handleSuccess = response => {
@@ -39,7 +45,7 @@ function Navbar() {
   }
 
   useEffect(() => {
-    apiGET(USERS, handleSuccess, handleError)
+    apiGET(API, USERS, handleSuccess, handleError)
   }, [])
 
   return (

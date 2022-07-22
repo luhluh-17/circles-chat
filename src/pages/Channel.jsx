@@ -1,12 +1,18 @@
+import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
 import ModalAddChannel from '../parts/Channel/ModalAddChannel'
-import { apiGET } from '../services/api'
-import { CHANNELS } from '../services/constant'
+import { apiGET, getHeaders } from '../services/api'
+import { BASE_URL, CHANNELS } from '../services/constant'
 
 function Channel() {
+  const API = axios.create({
+    baseURL: BASE_URL,
+    headers: getHeaders(),
+  })
+
   const [response, setResponse] = useState(null)
   const [isOpen, setIsOpen] = useState(false)
 
@@ -16,7 +22,6 @@ function Channel() {
 
   const handleSuccess = response => {
     setResponse(response)
-    console.log(response)
   }
 
   const handleError = error => {
@@ -24,11 +29,11 @@ function Channel() {
   }
 
   const handleAPICall = () => {
-    apiGET(CHANNELS, handleSuccess, handleError)
+    apiGET(API, CHANNELS, handleSuccess, handleError)
   }
 
   useEffect(() => {
-    apiGET(CHANNELS, handleSuccess, handleError)
+    apiGET(API, CHANNELS, handleSuccess, handleError)
   }, [])
 
   return (

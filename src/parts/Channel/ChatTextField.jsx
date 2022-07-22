@@ -1,9 +1,15 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import Icon from '../../components/Icon'
-import { apiPOST } from '../../services/api'
-import { MESSAGES } from '../../services/constant'
+import { apiPOST, getHeaders } from '../../services/api'
+import { BASE_URL, MESSAGES } from '../../services/constant'
 
 function ChatTextField({ id, obj }) {
+  const API = axios.create({
+    baseURL: BASE_URL,
+    headers: getHeaders(),
+  })
+
   const [message, setMessage] = useState('')
 
   const handleSendMessage = () => {
@@ -13,15 +19,13 @@ function ChatTextField({ id, obj }) {
       body: message,
     }
 
-    const onSuccess = response => {
-      console.log(response)
-    }
+    const onSuccess = response => {}
 
     const onError = error => {
       console.log(error)
     }
 
-    apiPOST(MESSAGES, data, onSuccess, onError)
+    apiPOST(API, MESSAGES, data, onSuccess, onError)
     setMessage('')
   }
 

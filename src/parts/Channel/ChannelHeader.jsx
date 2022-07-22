@@ -1,9 +1,15 @@
+import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Icon from '../../components/Icon'
-import { apiGET } from '../../services/api'
-import { CHANNEL_MEMBERS, USERS } from '../../services/constant'
+import { apiGET, getHeaders } from '../../services/api'
+import { BASE_URL, CHANNEL_MEMBERS, USERS } from '../../services/constant'
 
 function ChannelHeader({ id }) {
+  const API = axios.create({
+    baseURL: BASE_URL,
+    headers: getHeaders(),
+  })
+
   const [owner, setOwner] = useState({})
   const [members, setMembers] = useState([])
 
@@ -12,6 +18,7 @@ function ChannelHeader({ id }) {
     const memberIds = channel_members.map(member => member.user_id)
 
     apiGET(
+      API,
       USERS,
       response => {
         const userList = response.data
@@ -38,7 +45,7 @@ function ChannelHeader({ id }) {
     console.log(members)
   }
   useEffect(() => {
-    apiGET(CHANNEL_MEMBERS(id), handleSuccess, handleError)
+    apiGET(API, CHANNEL_MEMBERS(id), handleSuccess, handleError)
   }, [id])
 
   return (

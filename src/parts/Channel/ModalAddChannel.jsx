@@ -1,13 +1,19 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import ControlledInput from '../../components/ControlledInput'
 import FormButton from '../../components/FormButton'
 import FormHeader from '../../components/FormHeader'
 import Modal from '../../components/Modal'
-import { apiPOST } from '../../services/api'
-import { CHANNELS } from '../../services/constant'
+import { apiPOST, getHeaders } from '../../services/api'
+import { BASE_URL, CHANNELS } from '../../services/constant'
 import { validateChannel } from '../../utils/validators'
 
 function ModalAddChannel({ isOpen, onClose, onSuccessCallback }) {
+  const API = axios.create({
+    baseURL: BASE_URL,
+    headers: getHeaders(),
+  })
+
   const [channel, setChannel] = useState('')
   const [error, setError] = useState('')
 
@@ -34,7 +40,7 @@ function ModalAddChannel({ isOpen, onClose, onSuccessCallback }) {
         console.log('ChannelAddError', error)
       }
 
-      apiPOST(CHANNELS, data, onSuccess, onError)
+      apiPOST(API, CHANNELS, data, onSuccess, onError)
     }
   }
 

@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { groupBy } from 'lodash'
-import { apiGET } from '../services/api'
-import { READ_MESSAGE } from '../services/constant'
+import { apiGET, getHeaders } from '../services/api'
+import { BASE_URL, READ_MESSAGE } from '../services/constant'
 import ChatContainer from '../parts/Channel/ChatContainer'
 import ChatTextField from '../parts/Channel/ChatTextField'
 import ChannelHeader from '../parts/Channel/ChannelHeader'
+import axios from 'axios'
 
 function ChannelDetails() {
+  const API = axios.create({
+    baseURL: BASE_URL,
+    headers: getHeaders(),
+  })
+
   const [chats, setChats] = useState([])
   const { id } = useParams()
 
@@ -40,7 +46,7 @@ function ChannelDetails() {
 
   useEffect(() => {
     const subscribeAPI = setInterval(() => {
-      apiGET(READ_MESSAGE(id, 'Channel'), handleSuccess, handleError)
+      apiGET(API, READ_MESSAGE(id, 'Channel'), handleSuccess, handleError)
     }, 3000)
     return () => {
       clearInterval(subscribeAPI)

@@ -4,10 +4,16 @@ import { groupBy } from 'lodash'
 import ChatContainer from '../parts/Channel/ChatContainer'
 import ChatTextField from '../parts/Channel/ChatTextField'
 import MessageHeader from '../parts/Messages/MessageHeader'
-import { apiGET } from '../services/api'
-import { READ_MESSAGE } from '../services/constant'
+import { apiGET, getHeaders } from '../services/api'
+import { BASE_URL, READ_MESSAGE } from '../services/constant'
+import axios from 'axios'
 
 function MessageDetails() {
+  const API = axios.create({
+    baseURL: BASE_URL,
+    headers: getHeaders(),
+  })
+
   const [chats, setChats] = useState([])
   const { id } = useParams()
 
@@ -38,7 +44,7 @@ function MessageDetails() {
 
   useEffect(() => {
     const subscribeAPI = setInterval(() => {
-      apiGET(READ_MESSAGE(id, 'User'), handleSuccess, handleError)
+      apiGET(API, READ_MESSAGE(id, 'User'), handleSuccess, handleError)
     }, 1000)
     return () => {
       clearInterval(subscribeAPI)
