@@ -14,7 +14,6 @@ function Navbar() {
 
   const navigateToMessages = () => {
     navigate('/messages')
-    localStorage.clear()
   }
 
   const handleLogout = () => {
