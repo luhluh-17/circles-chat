@@ -9,7 +9,7 @@ import Logo from './Logo'
 import ProfileIcon from './ProfileIcon'
 import Searchbar from './Searchbar'
 
-function Navbar() {
+function Navbar({ onFilter }) {
   const API = axios.create({
     baseURL: BASE_URL,
     headers: getHeaders(),
@@ -52,7 +52,7 @@ function Navbar() {
   return (
     <nav className='navbar'>
       <Logo />
-      <Searchbar />
+      <Searchbar onFilter={onFilter} />
       <ul className='navbar-items'>
         <li onClick={navigateToChannel}>
           <Icon icon='diversity_3' />

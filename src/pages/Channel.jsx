@@ -8,13 +8,13 @@ import { apiGET, getHeaders } from '../services/api'
 import { BASE_URL, CHANNELS } from '../services/constant'
 
 function Channel() {
+  const [response, setResponse] = useState(null)
+  const [isOpen, setIsOpen] = useState(false)
+
   const API = axios.create({
     baseURL: BASE_URL,
     headers: getHeaders(),
   })
-
-  const [response, setResponse] = useState(null)
-  const [isOpen, setIsOpen] = useState(false)
 
   const toggleDialog = () => setIsOpen(bool => !bool)
   const closeDialog = () => setIsOpen(false)
@@ -32,14 +32,19 @@ function Channel() {
     apiGET(API, CHANNELS, handleSuccess, handleError)
   }
 
+  const handleFilter = value => {
+    console.log(value)
+  }
+
   useEffect(() => {
     apiGET(API, CHANNELS, handleSuccess, handleError)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
     <>
       <main className='app-container'>
-        <Navbar />
+        <Navbar onFilter={handleFilter} />
         <section className='app-content'>
           <Sidebar
             icon='diversity_3'
