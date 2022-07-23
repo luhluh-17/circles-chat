@@ -18,4 +18,10 @@ export const savedUsersToLocal = users => {
   localStorage.setItem('users', JSON.stringify(users))
 }
 
-export const getUsersFromLocal = () => JSON.parse(localStorage.getItem('users'))
+export const getUsersFromLocal = () => {
+  if (localStorage.getItem('users') !== null) {
+    return JSON.parse(localStorage.getItem('users'))
+  } else {
+    return []
+  }
+}

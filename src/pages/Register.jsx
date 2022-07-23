@@ -27,7 +27,7 @@ function Register() {
         password,
         password_confirmation: confirm,
       }
-      const onSuccess = () => navigate('/home')
+      const onSuccess = () => navigate('/channels')
       const onError = errors => setError(errors.email[0])
       authUser(REGISTER, data, onSuccess, onError)
     }
