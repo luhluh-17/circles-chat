@@ -36,6 +36,7 @@ function ModalAddChannel({ isOpen, onClose, onSuccessCallback }) {
           onSuccessCallback()
           setChannel('')
           onClose()
+          setCheckedState(new Array(getUsersFromLocal().length).fill(false))
         } else {
           setError('has already been taken')
         }
