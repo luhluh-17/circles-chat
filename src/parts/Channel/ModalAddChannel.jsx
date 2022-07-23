@@ -6,16 +6,21 @@ import FormHeader from '../../components/FormHeader'
 import Modal from '../../components/Modal'
 import { apiPOST, getHeaders } from '../../services/api'
 import { BASE_URL, CHANNELS } from '../../services/constant'
+import { getUsersFromLocal } from '../../utils/helper'
 import { validateChannel } from '../../utils/validators'
 
 function ModalAddChannel({ isOpen, onClose, onSuccessCallback }) {
+  const [channel, setChannel] = useState('')
+  const [error, setError] = useState('')
+  const [members, setMembers] = useState([])
+  const [checkedState, setCheckedState] = useState(
+    new Array(getUsersFromLocal().length).fill(false)
+  )
+
   const API = axios.create({
     baseURL: BASE_URL,
     headers: getHeaders(),
   })
-
-  const [channel, setChannel] = useState('')
-  const [error, setError] = useState('')
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -23,7 +28,7 @@ function ModalAddChannel({ isOpen, onClose, onSuccessCallback }) {
     if (validateChannel(channel).result) {
       const data = {
         name: channel,
-        user_ids: [localStorage.getItem('id')],
+        user_ids: [...members, localStorage.getItem('id')],
       }
 
       const onSuccess = response => {
@@ -44,6 +49,22 @@ function ModalAddChannel({ isOpen, onClose, onSuccessCallback }) {
     }
   }
 
+  const handleOnChange = position => {
+    const updatedCheckedState = checkedState.map((item, index) =>
+      index === position ? !item : item
+    )
+
+    setCheckedState(updatedCheckedState)
+
+    updatedCheckedState.forEach((item, index) => {
+      if (item === true) {
+        setMembers(state => {
+          return [...state, getUsersFromLocal()[index].id]
+        })
+      }
+    })
+  }
+
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <form onSubmit={handleSubmit}>
@@ -59,6 +80,23 @@ function ModalAddChannel({ isOpen, onClose, onSuccessCallback }) {
             validate={() => validateChannel(channel, error)}
           />
         </div>
+        <ul className='modal-users'>
+          {getUsersFromLocal().map((user, index) => {
+            return (
+              <li key={index}>
+                <input
+                  type='checkbox'
+                  id={`custom-checkbox-${index}`}
+                  name={user.name}
+                  value={user.id}
+                  checked={checkedState[index]}
+                  onChange={() => handleOnChange(index)}
+                />
+                <label htmlFor={`custom-checkbox-${index}`}>{user.name}</label>
+              </li>
+            )
+          })}
+        </ul>
         <FormButton text='Create' />
       </form>
     </Modal>

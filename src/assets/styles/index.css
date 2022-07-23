@@ -517,6 +517,11 @@ body {
   color: var(--clr-grey-300);
 }
 
+.modal-users {
+  height: 35vh;
+  overflow-y: auto;
+}
+
 .navbar {
   display: flex;
   flex-direction: row;
