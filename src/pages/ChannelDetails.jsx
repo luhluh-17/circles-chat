@@ -7,6 +7,7 @@ import ChatContainer from '../parts/Channel/ChatContainer'
 import ChatTextField from '../parts/Channel/ChatTextField'
 import ChannelHeader from '../parts/Channel/ChannelHeader'
 import axios from 'axios'
+import EmptyContent from '../components/EmptyContent'
 
 function ChannelDetails() {
   const [chats, setChats] = useState([])
@@ -58,7 +59,14 @@ function ChannelDetails() {
   return (
     <div className='channel-container'>
       <ChannelHeader />
-      <ChatContainer chats={chats} />
+      {JSON.stringify(chats) === JSON.stringify({}) ? (
+        <EmptyContent
+          styleName='empty-chat'
+          error='Try to say something nice like Hello World'
+        />
+      ) : (
+        <ChatContainer chats={chats} />
+      )}
       <ChatTextField id={id} obj='Channel' />
     </div>
   )

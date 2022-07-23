@@ -66,3 +66,15 @@
 .active {
   background-color: var(--clr-primary);
 }
+
+.empty-chat {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.5;
+  padding: 1rem;
+  img {
+    width: 20rem;
+  }
+}

@@ -7,6 +7,7 @@ import MessageHeader from '../parts/Messages/MessageHeader'
 import { apiGET, getHeaders } from '../services/api'
 import { BASE_URL, READ_MESSAGE } from '../services/constant'
 import axios from 'axios'
+import EmptyContent from '../components/EmptyContent'
 
 function MessageDetails() {
   const API = axios.create({
@@ -54,7 +55,15 @@ function MessageDetails() {
   return (
     <div className='channel-container'>
       <MessageHeader id={id} />
-      <ChatContainer chats={chats} />
+      {JSON.stringify(chats) === JSON.stringify({}) ? (
+        <EmptyContent
+          styleName='empty-chat'
+          error='Try to say something nice like Hello World'
+        />
+      ) : (
+        <ChatContainer chats={chats} />
+      )}
+
       <ChatTextField id={id} obj='User' />
     </div>
   )

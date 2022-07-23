@@ -641,6 +641,18 @@ body {
   background-color: var(--clr-primary);
 }
 
+.empty-chat {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.5;
+  padding: 1rem;
+}
+.empty-chat img {
+  width: 20rem;
+}
+
 .app-container {
   display: flex;
   flex-direction: column;

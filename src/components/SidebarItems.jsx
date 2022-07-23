@@ -14,7 +14,10 @@ function SidebarItems({ list = [], errors }) {
   ))
 
   return errors !== undefined ? (
-    <EmptyContent />
+    <EmptyContent
+      styleName='sidebar-no-items'
+      error='Start creating channels to get started'
+    />
   ) : (
     <ul className='sidebar-item-container'>{channels}</ul>
   )

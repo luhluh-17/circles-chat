@@ -1,12 +1,12 @@
 import React from 'react'
 import image from '../assets/images/the-list-is-empty.png'
 
-function EmptyContent() {
+function EmptyContent({ styleName, error }) {
   return (
-    <div className='sidebar-no-items'>
+    <div className={styleName}>
       <img src={image} alt='no content' />
       <p>Oops! Nothing to show here</p>
-      <p>Start creating channels to get started</p>
+      <p>{error}</p>
     </div>
   )
 }
