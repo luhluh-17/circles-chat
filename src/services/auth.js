@@ -3,7 +3,12 @@ import { BASE_URL } from './constant'
 
 const auth = axios.create({
   baseURL: BASE_URL,
-  headers: { 'Content-Type': 'application/json' },
+  headers: {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'POST',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+  },
 })
 
 export const authUser = async (url, data, onSuccess, onError) => {
