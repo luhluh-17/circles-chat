@@ -1,4 +1,5 @@
-export const BASE_URL = 'http://206.189.91.54/api/v1'
+// export const BASE_URL = 'http://206.189.91.54/api/v1'
+export const BASE_URL = 'https://slackapi.avionschool.com'
 export const REGISTER = '/auth'
 export const LOGIN = '/auth/sign_in'
 export const USERS = '/users'
