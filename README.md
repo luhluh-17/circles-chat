@@ -1,12 +1,17 @@
 # Circles Chat
-A simple basic chat app
+A Discord/Slack clone application using Avion School API
 
 ### 💻 Features:
-* Register and Login account
-* Search Users
-* Create Channels and invite users
-* Send direct messages to users
-* Send messages in channels
+* Users can register and login their account
+* Create and Invite other users to group channel
+* View list of members in channel
+* Send and View direct messages to users or group channel
+* Real time chat messaging using Interval
+
+#### Dummy Accounts
+Accounts    | Email & Password
+:---------: | :-------------------------------:
+User        | `admin20@gmail.com` / password
 
 ### 👨🏽‍💻 Tech Stacks
 
