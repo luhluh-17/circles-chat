@@ -11,8 +11,9 @@ A Discord/Slack clone application using Avion School API
 ### 🚀 Live Demo
 https://circles-chat.vercel.app/
 
-#### Dummy Accounts
-⚠ Due to an API limitation, your browser might be blocking access to the application.
+#### ⚠ Important Note
+
+Due to an API limitation, your browser might be blocking access to the application.
 
 Solutions:
 
@@ -20,6 +21,7 @@ Solutions:
 
 2. Allow Insecure Content on your browser. Click this [link][8] for instructions
 
+#### Dummy Accounts
 Accounts    | Email & Password
 :---------: | :-------------------------------:
 User        | `admin20@gmail.com` / password
