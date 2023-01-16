@@ -8,7 +8,18 @@ A Discord/Slack clone application using Avion School API
 * Send and View direct messages to users or group channel
 * Real time chat messaging using Interval
 
+### 🚀 Live Demo
+https://circles-chat.vercel.app/
+
 #### Dummy Accounts
+⚠ Due to an API limitation, your browser might be blocking access to the application.
+
+Solutions:
+
+1. Try to clone and run the application on your local machine, or
+
+2. Allow Insecure Content on your browser. Click this [link][8] for instructions
+
 Accounts    | Email & Password
 :---------: | :-------------------------------:
 User        | `admin20@gmail.com` / password
@@ -35,3 +46,4 @@ Illustration by [Olga Nesnova][6] from [Ouch!][7]
 [5]: https://commons.wikimedia.org/wiki/File:React-icon.svg
 [6]: https://icons8.com/illustrations/author/2sm0UqgTlIgD
 [7]: https://icons8.com/illustrations
+[8]: https://experienceleague.adobe.com/docs/target/using/experiences/vec/troubleshoot-composer/mixed-content.html?lang=en
